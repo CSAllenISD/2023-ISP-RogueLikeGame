@@ -6,6 +6,7 @@ Members: Chris, Evan, Andrew, Vereie
 Product Manager: Evan 
 
 Project Manager: Chris 
+https://www.codermerlin.com/users/christopher-carter/Digital%20Portfolio/index.html
 
 Quality Assurance Engineer: Andrew 
 
