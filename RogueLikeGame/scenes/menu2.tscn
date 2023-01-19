@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="menu2" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="testbutton2" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
