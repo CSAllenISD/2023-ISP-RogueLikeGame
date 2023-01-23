@@ -19,8 +19,10 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="testbutton" type="TextureButton" parent="menu"]
-margin_right = 266.0
-margin_bottom = 189.0
+margin_left = 58.0
+margin_top = -4.0
+margin_right = 139.0
+margin_bottom = 48.0
 rect_clip_content = true
 hint_tooltip = "yo mama"
 keep_pressed_outside = true
@@ -43,7 +45,24 @@ text = "you mama"
 script = ExtResource( 4 )
 
 [node name="character" parent="." instance=ExtResource( 5 )]
-position = Vector2( 765, 380 )
+position = Vector2( 103, 90 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 56, -5, 56, 52, 141, 52, 141, -9 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -57, 0, -57, 170, -49, 170, -49, 0 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -49, 170, 256, 170, 256, 166, -48, 167 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 256, 169, 256, -10, 263, -10, 262, 170 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -57, -1, -57, -10, 257, -10, 257, 0 )
 
 [connection signal="button_down" from="menu/testbutton" to="menu/Label" method="_on_testbutton_button_down"]
 [connection signal="button_up" from="menu/testbutton" to="menu/Label" method="_on_testbutton_button_up"]

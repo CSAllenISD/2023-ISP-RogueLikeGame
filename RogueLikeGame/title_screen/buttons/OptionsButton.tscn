@@ -6,4 +6,6 @@
 scene_to_load = "res://Game/Options.tscn"
 
 [node name="Label" parent="." index="0"]
+margin_left = 0.0
+margin_right = -3.05176e-05
 text = "Options"

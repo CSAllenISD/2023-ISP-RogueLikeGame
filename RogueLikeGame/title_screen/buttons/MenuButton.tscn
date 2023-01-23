@@ -4,22 +4,30 @@
 [ext_resource path="res://RogueLikeGame/title_screen/buttons/MenuButton.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 48
 font_data = ExtResource( 1 )
 
 [node name="Menu Button" type="Button"]
-margin_right = 1040.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 360, 60 )
+anchor_left = 0.403
+anchor_right = 0.403
+anchor_bottom = 0.275
+margin_left = -265.84
+margin_right = 94.16
+margin_bottom = -98.0
+rect_min_size = Vector2( 360, 100 )
 flat = true
+icon_align = 1
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 250.0
+margin_right = 250.0
+margin_bottom = 7.0
 custom_colors/font_color_shadow = Color( 0.301961, 0.239216, 0.239216, 1 )
 custom_constants/shadow_offset_x = 10
 custom_constants/shadow_offset_y = 5
 custom_constants/shadow_as_outline = 0
 custom_fonts/font = SubResource( 1 )
 text = "Label"
+align = 1

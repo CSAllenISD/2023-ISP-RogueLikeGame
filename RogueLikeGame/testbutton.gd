@@ -17,8 +17,9 @@ func _process(_delta):
 	
 	if self.pressed:
 		print(get_tree())
+		get_tree().change_scene("res://RogueLikeGame/titleScreen.tscn") 
 
 
 func _on_testbutton_pressed():
-	
+	get_tree().change_scene("res://RogueLikeGame/titleScreen.tscn") 
 	pass # Replace with function body.
