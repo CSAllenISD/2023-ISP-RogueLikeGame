@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/waltersprite.png-7e125a056e3abf650bd819e83d4c813d.stex"
+path="res://.import/crate.png-535fcc189d2c2ac3a863cb5390184ed2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RogueLikeGame/assets/waltersprite.png"
-dest_files=[ "res://.import/waltersprite.png-7e125a056e3abf650bd819e83d4c813d.stex" ]
+source_file="res://RogueLikeGame/assets/crate.png"
+dest_files=[ "res://.import/crate.png-535fcc189d2c2ac3a863cb5390184ed2.stex" ]
 
 [params]
 
