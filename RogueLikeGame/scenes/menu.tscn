@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://RogueLikeGame/testbutton.gd" type="Script" id=1]
 [ext_resource path="res://RogueLikeGame/assets/walt.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://RogueLikeGame/scenes/Label.gd" type="Script" id=4]
 [ext_resource path="res://RogueLikeGame/scenes/character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://RogueLikeGame/autoloads/FingerSpeech.tscn" type="PackedScene" id=6]
+[ext_resource path="res://RogueLikeGame/assets/Mikepng.png" type="Texture" id=7]
+[ext_resource path="res://RogueLikeGame/assets/DokiBackground.png" type="Texture" id=8]
 
 [node name="root" type="Control"]
 anchor_right = 1.0
@@ -27,8 +29,8 @@ margin_bottom = 48.0
 rect_clip_content = true
 hint_tooltip = "yo mama"
 keep_pressed_outside = true
-texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 1 )
@@ -46,6 +48,18 @@ text = "you mama"
 script = ExtResource( 4 )
 
 [node name="Finger Speech" parent="menu" instance=ExtResource( 6 )]
+
+[node name="Sprite" type="Sprite" parent="menu"]
+position = Vector2( 102, 84.5 )
+scale = Vector2( 1.06312, 1.13174 )
+z_index = -9
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="menu"]
+position = Vector2( 165, 97 )
+scale = Vector2( 0.199898, 0.189863 )
+z_index = -1
+texture = ExtResource( 7 )
 
 [node name="character" parent="." instance=ExtResource( 5 )]
 position = Vector2( 103, 90 )
