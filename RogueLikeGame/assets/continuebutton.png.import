@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fing.jpg-afaae865793d60220b92712dcb2f176a.stex"
+path="res://.import/continuebutton.png-0d22239719689b731f446621cf8c52e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RogueLikeGame/assets/fing.jpg"
-dest_files=[ "res://.import/fing.jpg-afaae865793d60220b92712dcb2f176a.stex" ]
+source_file="res://RogueLikeGame/assets/continuebutton.png"
+dest_files=[ "res://.import/continuebutton.png-0d22239719689b731f446621cf8c52e9.stex" ]
 
 [params]
 

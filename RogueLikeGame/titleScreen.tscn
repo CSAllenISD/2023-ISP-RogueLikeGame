@@ -80,7 +80,6 @@ margin_right = 145.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 0 )
 rect_scale = Vector2( 1, 1 )
-expand_icon = true
 
 [node name="ContinueButton" parent="Buttons" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -91,8 +90,6 @@ margin_top = 24.0
 margin_right = 145.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 0, 0 )
-clip_text = true
-icon_align = 0
 script = ExtResource( 7 )
 
 [node name="OptionsButton" parent="Buttons" instance=ExtResource( 6 )]
@@ -104,7 +101,6 @@ margin_top = 48.0
 margin_right = 145.0
 margin_bottom = 68.0
 rect_min_size = Vector2( 0, 0 )
-icon_align = 0
 script = ExtResource( 8 )
 scene_to_load = ""
 

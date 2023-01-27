@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://RogueLikeGame/testbutton.gd" type="Script" id=1]
 [ext_resource path="res://RogueLikeGame/assets/walt.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/fing.jpg" type="Texture" id=3]
 [ext_resource path="res://RogueLikeGame/scenes/Label.gd" type="Script" id=4]
 [ext_resource path="res://RogueLikeGame/scenes/character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RogueLikeGame/autoloads/FingerSpeech.tscn" type="PackedScene" id=6]
 
 [node name="root" type="Control"]
 anchor_right = 1.0
@@ -43,6 +44,8 @@ margin_right = 126.24
 margin_bottom = 14.08
 text = "you mama"
 script = ExtResource( 4 )
+
+[node name="Finger Speech" parent="menu" instance=ExtResource( 6 )]
 
 [node name="character" parent="." instance=ExtResource( 5 )]
 position = Vector2( 103, 90 )

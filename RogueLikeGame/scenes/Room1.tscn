@@ -79,6 +79,7 @@
 2/z_index = 0
 
 [node name="Room1" type="Node2D"]
+pause_mode = 1
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 160, 90 )
