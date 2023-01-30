@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kevin MacLeod - P. I. Tchaikovsky_ Dance of the Sugar Plum Fairy.mp3-eb8f1e2b047000a8ff32a686c6b414b0.mp3str"
+
+[deps]
+
+source_file="res://RogueLikeGame/assets/Kevin MacLeod - P. I. Tchaikovsky_ Dance of the Sugar Plum Fairy.mp3"
+dest_files=[ "res://.import/Kevin MacLeod - P. I. Tchaikovsky_ Dance of the Sugar Plum Fairy.mp3-eb8f1e2b047000a8ff32a686c6b414b0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

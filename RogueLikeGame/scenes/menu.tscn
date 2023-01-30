@@ -4,7 +4,7 @@
 [ext_resource path="res://RogueLikeGame/assets/walt.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/fing.jpg" type="Texture" id=3]
 [ext_resource path="res://RogueLikeGame/scenes/Label.gd" type="Script" id=4]
-[ext_resource path="res://RogueLikeGame/scenes/character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RogueLikeGame/assets/toby fox - UNDERTALE Soundtrack - 25 Dating Start!.mp3" type="AudioStream" id=5]
 [ext_resource path="res://RogueLikeGame/autoloads/FingerSpeech.tscn" type="PackedScene" id=6]
 [ext_resource path="res://RogueLikeGame/assets/Mikepng.png" type="Texture" id=7]
 [ext_resource path="res://RogueLikeGame/assets/DokiBackground.png" type="Texture" id=8]
@@ -61,9 +61,6 @@ scale = Vector2( 0.199898, 0.189863 )
 z_index = -1
 texture = ExtResource( 7 )
 
-[node name="character" parent="." instance=ExtResource( 5 )]
-position = Vector2( 103, 90 )
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -80,6 +77,11 @@ polygon = PoolVector2Array( 256, 169, 256, -10, 263, -10, 262, 170 )
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -57, -1, -57, -10, 257, -10, 257, 0 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -1.492
+autoplay = true
 
 [connection signal="button_down" from="menu/testbutton" to="menu/Label" method="_on_testbutton_button_down"]
 [connection signal="button_up" from="menu/testbutton" to="menu/Label" method="_on_testbutton_button_up"]

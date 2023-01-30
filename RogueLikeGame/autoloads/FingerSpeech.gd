@@ -39,7 +39,9 @@ func _process(delta):
 			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
 				hide_text_box()
-				
+				if text_queue == []:
+					get_tree().change_scene("res://RogueLikeGame/scenes/DEVTESTRoom.tscn")
+				 
 
 func queue_text(next_text):
 	text_queue.push_back(next_text)

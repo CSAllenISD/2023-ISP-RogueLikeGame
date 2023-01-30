@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RogueLikeGame/Characters/Enemy.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends FiniteStateMachine
+
+func _init() -> void:
+	_add_state(\"chase\")
+	
+func _ready() -> void:
+	set_state(states.chase)
+	
+func _state_logic(_delta: float) -> void:
+	if state == states.chase:
+		parent.chase()
+		parent.move()
+
+func _get_transition() -> int:
+	return -1
+	
+func _enter_state(_previous_state: int, new_state: int) -> void:
+	match new_state:
+		states.chase:
+			animation_player.play(\"Gnomeidle\")
+"
+
+[sub_resource type="Animation" id=1]
+resource_name = "GnomeIdle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.121585 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Gnomeidle" ]
+}
+
+[node name="Gnome" instance=ExtResource( 1 )]
+
+[node name="FiniteStateMachine" parent="." index="0"]
+script = SubResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="1"]
+animation = "GnomeIdle"
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( 0, 4 )
+
+[node name="AnimationPlayer" parent="." index="3"]
+anims/GnomeIdle = SubResource( 1 )

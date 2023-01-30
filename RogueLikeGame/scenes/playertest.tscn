@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://RogueLikeGame/scenes/character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=1]
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 
