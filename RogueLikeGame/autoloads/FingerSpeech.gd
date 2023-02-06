@@ -16,14 +16,10 @@ func _ready():
 	print("Starting State: state.READY")
 	hide_text_box()
 	queue_text("We had everything we needed, and it all ran like clockwork.")
-	queue_text("You could've shut your mouth, cooked and made as much money as you ever needed. It was perfect.")
+	queue_text(" You could've shut your mouth, cooked and made as much money as you ever needed.")
+	queue_text(" It was perfect.")
 	queue_text("But, no,")
 	queue_text("you just had to blow it up.")
-	queue_text("You and your pride and your ego!")
-	queue_text("You just had to be the man.")
-	queue_text(" If you'd done your job, known your place,")
-	queue_text("we'd all be fine right now.")
-	
 func _process(delta):
 	match current_state:
 		State.READY:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://RogueLikeGame/Characters/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RogueLikeGame/scenes/Crate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://RogueLikeGame/assets/grasstile.png" type="Texture" id=3]
 [ext_resource path="res://RogueLikeGame/assets/StoneTileset.png" type="Texture" id=4]
@@ -104,9 +104,6 @@ tile_data = PoolIntArray( -65529, 0, 0, -65528, 0, 1, -65527, 0, 1, -65526, 0, 1
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 152, 96 )
-
 [node name="Crate" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 96, 104 )
 
@@ -145,6 +142,9 @@ texture = ExtResource( 5 )
 [node name="Rocks3" type="Sprite" parent="YSort"]
 position = Vector2( 232, 40 )
 texture = ExtResource( 5 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 152, 96 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

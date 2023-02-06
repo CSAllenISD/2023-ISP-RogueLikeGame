@@ -1,57 +1,47 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://RogueLikeGame/Characters/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RogueLikeGame/assets/gnome.png" type="Texture" id=1]
 
-[sub_resource type="GDScript" id=2]
-script/source = "extends FiniteStateMachine
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 32 )
 
-func _init() -> void:
-	_add_state(\"chase\")
-	
-func _ready() -> void:
-	set_state(states.chase)
-	
-func _state_logic(_delta: float) -> void:
-	if state == states.chase:
-		parent.chase()
-		parent.move()
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 32 )
 
-func _get_transition() -> int:
-	return -1
-	
-func _enter_state(_previous_state: int, new_state: int) -> void:
-	match new_state:
-		states.chase:
-			animation_player.play(\"Gnomeidle\")
-"
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 32 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "GnomeIdle"
-length = 0.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.121585 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "Gnomeidle" ]
-}
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 32 )
 
-[node name="Gnome" instance=ExtResource( 1 )]
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "gnome",
+"speed": 15.0
+} ]
 
-[node name="FiniteStateMachine" parent="." index="0"]
-script = SubResource( 2 )
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 4.0
+height = 4.0
 
-[node name="AnimatedSprite" parent="." index="1"]
-animation = "GnomeIdle"
+[node name="Gnome" type="KinematicBody2D"]
+position = Vector2( 24, -6 )
+collision_layer = 16
 
-[node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 0, 4 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -24, -9 )
+frames = SubResource( 5 )
+animation = "gnome"
+frame = 2
+playing = true
 
-[node name="AnimationPlayer" parent="." index="3"]
-anims/GnomeIdle = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -24, 3 )
+rotation = 1.5708
+shape = SubResource( 6 )
