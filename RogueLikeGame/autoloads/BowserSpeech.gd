@@ -10,13 +10,13 @@ enum State {
 	READING,
 	FINISHED
 }
-var current_state = State.FINISHED
+var current_state = State.READY
 var text_queue = []
 func _ready():
 	print("Starting State: state.READY")
 	hide_text_box()
 	
-	queue_text("Ill get those pesky plumbers")
+	#queue_text("Ill get those pesky plumbers")
 	
 func _process(delta):
 	match current_state:
@@ -74,3 +74,5 @@ func change_state(next_state):
 		State.FINISHED:
 			print("CHanGinG STaTe To state.FINISHED")
 			
+func _enter():
+	hide_text_box()
