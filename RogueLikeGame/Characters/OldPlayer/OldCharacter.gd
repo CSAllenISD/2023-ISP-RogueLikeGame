@@ -1,7 +1,7 @@
 extends KinematicBody2D
 const ACCELERATION = 600
 const MAX_SPEED = 100
-const FRICTION = 800
+const FRICTION = 300
 
 enum{
 	MOVE,
@@ -40,7 +40,7 @@ func move_state(delta):
 	input_vector = input_vector.normalized()
 	#makes movement speed at angles = to straight directions
 	if input_vector != Vector2.ZERO:
-		print(input_vector)
+		#print(input_vector)
 		
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
@@ -56,4 +56,4 @@ func move_state(delta):
 		state = ATTACK
 	
 func attack_state(delta):
-	pass
+	state = MOVE

@@ -10,17 +10,14 @@ enum State {
 	READING,
 	FINISHED
 }
-var current_state = State.READY
+var current_state = State.FINISHED
 var text_queue = []
 func _ready():
 	print("Starting State: state.READY")
 	hide_text_box()
-	queue_text("We had everything we needed, and it all ran like clockwork.")
-	queue_text(" You could've shut your mouth, cooked and made as much money as you ever needed.")
-	queue_text(" It was perfect.")
-	queue_text("But, no,")
-	queue_text("you just had to blow it up.")
-	queue_text("Im not having sex with you waltah")
+	
+	queue_text("Ill get those pesky plumbers")
+	
 func _process(delta):
 	match current_state:
 		State.READY:
@@ -36,8 +33,8 @@ func _process(delta):
 			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
 				hide_text_box()
-				if text_queue == []:
-					get_tree().change_scene("res://RogueLikeGame/scenes/DEVTESTRoom.tscn")
+				#if text_queue == []:
+					#get_tree().change_scene("res://RogueLikeGame/scenes/DEVTESTRoom.tscn")
 				 
 
 func queue_text(next_text):

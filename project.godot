@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://RogueLikeGame/Characters/Character.gd"
+}, {
 "base": "HBoxContainer",
 "class": "ContributorClass",
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/ContributorClass.gd"
+}, {
+"base": "Node",
+"class": "FiniteStateMachine",
+"language": "GDScript",
+"path": "res://RogueLikeGame/Characters/FSM.gd"
 }, {
 "base": "PanelContainer",
 "class": "GistItem",
@@ -30,7 +40,9 @@ _global_script_classes=[ {
 "path": "res://addons/github-integration/scripts/RepositoryItem.gd"
 } ]
 _global_script_class_icons={
+"Character": "",
 "ContributorClass": "",
+"FiniteStateMachine": "",
 "GistItem": "",
 "InvitationItem": "",
 "RepositoryItem": ""

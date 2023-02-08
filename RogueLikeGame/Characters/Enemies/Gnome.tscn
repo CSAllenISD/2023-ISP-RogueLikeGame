@@ -38,7 +38,6 @@ collision_layer = 16
 position = Vector2( -24, -9 )
 frames = SubResource( 5 )
 animation = "gnome"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

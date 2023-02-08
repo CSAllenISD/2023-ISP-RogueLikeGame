@@ -1,12 +1,16 @@
-[gd_scene load_steps=106 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileSetDark.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/Kevin MacLeod - P. I. Tchaikovsky_ Dance of the Sugar Plum Fairy.mp3" type="AudioStream" id=3]
 [ext_resource path="res://RogueLikeGame/UI/Health Bar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RogueLikeGame/assets/pngaaa.com-3925405.png" type="Texture" id=5]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileset.png" type="Texture" id=6]
+[ext_resource path="res://RogueLikeGame/assets/pngaaa.com-5077641.png" type="Texture" id=7]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/Gnome.tscn" type="PackedScene" id=8]
 [ext_resource path="res://RogueLikeGame/assets/Bowser.png" type="Texture" id=9]
+[ext_resource path="res://RogueLikeGame/autoloads/BowserSpeech.tscn" type="PackedScene" id=10]
+[ext_resource path="res://RogueLikeGame/scenes/BowserArea.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -735,6 +739,9 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="CircleShape2D" id=99]
+radius = 655.515
+
 [node name="DevRoom" type="Node2D"]
 pause_mode = 1
 
@@ -779,10 +786,21 @@ margin_right = 112.0
 margin_bottom = 14.0
 
 [node name="Sprite3" type="Sprite" parent="UI"]
-position = Vector2( 25.9999, 147 )
+position = Vector2( 159, 137.123 )
 rotation = 3.14159
-scale = Vector2( -0.0578357, -0.0966738 )
-region_rect = Rect2( -1.10837, -32.8383, 733.122, 191.631 )
+scale = Vector2( -0.313666, -0.150966 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( -1.108, -32.838, 733.122, 200 )
+
+[node name="Sprite4" type="Sprite" parent="UI"]
+position = Vector2( 43, 156 )
+rotation = 3.14159
+scale = Vector2( -0.164979, -0.113979 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 10, -24, 722, 545.613 )
+region_filter_clip = true
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 navigation_layers = 13
@@ -802,3 +820,15 @@ position = Vector2( 136, 76 )
 position = Vector2( 161, -212 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="Sprite"]
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+position = Vector2( 10, 320 )
+shape = SubResource( 99 )
+
+[node name="BowserSpeech" parent="Sprite/Area2D" instance=ExtResource( 10 )]
+
+[connection signal="body_entered" from="Sprite/Area2D" to="Sprite/Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Sprite/Area2D" to="Sprite/Area2D" method="_on_Area2D_body_exited"]
