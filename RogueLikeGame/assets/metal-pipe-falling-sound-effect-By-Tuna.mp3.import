@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/metal-pipe-falling-sound-effect-By-Tuna.mp3-ce081df3ac86138ab9f1db0dc19788a4.mp3str"
+
+[deps]
+
+source_file="res://RogueLikeGame/assets/metal-pipe-falling-sound-effect-By-Tuna.mp3"
+dest_files=[ "res://.import/metal-pipe-falling-sound-effect-By-Tuna.mp3-ce081df3ac86138ab9f1db0dc19788a4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

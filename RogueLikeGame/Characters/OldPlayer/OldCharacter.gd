@@ -1,7 +1,7 @@
 extends KinematicBody2D
 const ACCELERATION = 600
 const MAX_SPEED = 100
-const FRICTION = 300
+var FRICTION = 300
 
 enum{
 	MOVE,
@@ -20,8 +20,8 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _process(delta):
-	if Input.is_action_just_pressed("attack"):
-		self.health -= 10
+	#if Input.is_action_just_pressed("attack"):
+		#self.health -= 10
 	match state:
 		MOVE:
 			move_state(delta)
@@ -47,6 +47,7 @@ func move_state(delta):
 		
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
+		animationTree.set("parameters/PipeAttack/blend_position", input_vector)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 		
@@ -59,4 +60,29 @@ func move_state(delta):
 		state = ATTACK
 	
 func attack_state(delta):
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	input_vector = input_vector.normalized()
+	#makes movement speed at angles = to straight directions
+	if input_vector != Vector2.ZERO:
+		#print(input_vector)
+		
+		animationTree.set("parameters/Idle/blend_position", input_vector)
+		animationTree.set("parameters/Run/blend_position", input_vector)
+		animationTree.set("parameters/PipeAttack/blend_position", input_vector)
+		animationState.travel("Run")
+		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		
+	else:
+		animationState.travel("Idle")
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	velocity = move_and_slide(velocity)
+	$Sprite.visible = false
+	$PipeAttack.visible = true
+	animationState.travel("PipeAttack")
+func attack_state_finished():
+	
 	state = MOVE
+	$Sprite.visible = true
+	$PipeAttack.visible = false
