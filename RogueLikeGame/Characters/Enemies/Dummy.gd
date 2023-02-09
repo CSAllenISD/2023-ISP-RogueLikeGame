@@ -11,6 +11,7 @@ func create_dummy_effect():
 
 
 func _on_Hurtbox_area_entered(area):
+	print("area")
 	create_dummy_effect()
 	$Sprite.visible = false
 	$AnimatedSprite.play("hitanimate")
