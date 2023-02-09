@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=120 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileSetDark.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://RogueLikeGame/assets/metal-pipe-falling-sound-effect-By-Tuna.mp3" type="AudioStream" id=14]
 [ext_resource path="res://RogueLikeGame/assets/dummy.png" type="Texture" id=15]
 [ext_resource path="res://RogueLikeGame/assets/dummyhit1.png" type="Texture" id=16]
+[ext_resource path="res://RogueLikeGame/Characters/Enemies/turret.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -871,6 +872,9 @@ position = Vector2( 253, 71 )
 
 [node name="testProjectile3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 49, 50 )
+
+[node name="turret" parent="." instance=ExtResource( 17 )]
+position = Vector2( 90, -185 )
 
 [connection signal="area_entered" from="YSort/Dummys/Dummy2/Hurtbox" to="YSort/Dummys/Dummy2" method="_on_Hurtbox_area_entered"]
 [connection signal="animation_finished" from="YSort/Dummys/Dummy2/AnimatedSprite" to="YSort/Dummys/Dummy2" method="_on_AnimatedSprite_animation_finished"]
