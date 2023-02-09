@@ -8,7 +8,8 @@ enum{
 	DASH,
 	ATTACK,
 }
-
+var max_health = 100
+var health = 100
 
 var state = MOVE
 var velocity = Vector2.ZERO
@@ -19,6 +20,8 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _process(delta):
+	if Input.is_action_just_pressed("attack"):
+		self.health -= 10
 	match state:
 		MOVE:
 			move_state(delta)
