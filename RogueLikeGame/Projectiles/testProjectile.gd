@@ -25,6 +25,7 @@ func destroy():
 	
 func _on_Area2D_body_entered(body):
 	if body.name == "character":
-		print(body)
+		body.health -= 30
+		
 	destroy()
 	pass # Replace with function body.

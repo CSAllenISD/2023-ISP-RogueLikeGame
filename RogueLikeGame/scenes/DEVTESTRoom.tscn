@@ -851,7 +851,13 @@ shape = SubResource( 99 )
 [node name="BowserSpeech" parent="CutScenetrigger" instance=ExtResource( 10 )]
 
 [node name="testProjectile" parent="." instance=ExtResource( 12 )]
-position = Vector2( 262, 33 )
+position = Vector2( 288, 28 )
+
+[node name="testProjectile2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 253, 71 )
+
+[node name="testProjectile3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 49, 50 )
 
 [connection signal="body_entered" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_exited"]
