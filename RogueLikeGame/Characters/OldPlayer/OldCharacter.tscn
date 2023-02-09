@@ -1,9 +1,13 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.gd" type="Script" id=1]
 [ext_resource path="res://RogueLikeGame/assets/HomelessMan.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/PipeSwing.png" type="Texture" id=3]
 [ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hitbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RogueLikeGame/UI/Health Bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://RogueLikeGame/assets/pngaaa.com-3925405.png" type="Texture" id=7]
+[ext_resource path="res://RogueLikeGame/assets/pngaaa.com-5077641.png" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -42,30 +46,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 3 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 180.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot/PipeHitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.0158693 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=38]
 resource_name = "PipeDown"
@@ -96,30 +76,6 @@ tracks/1/keys = {
 "args": [  ],
 "method": "attack_state_finished"
 } ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 90.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/PipeHitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -152,30 +108,6 @@ tracks/1/keys = {
 "method": "attack_state_finished"
 } ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 180.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/PipeHitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
 
 [sub_resource type="Animation" id=40]
 resource_name = "PipeRight"
@@ -206,30 +138,6 @@ tracks/1/keys = {
 "args": [  ],
 "method": "attack_state_finished"
 } ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/PipeHitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=41]
@@ -262,30 +170,6 @@ tracks/1/keys = {
 "method": "attack_state_finished"
 } ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 270.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/PipeHitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -312,30 +196,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 1 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/PipeHitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -530,13 +390,17 @@ graph_offset = Vector2( 0, 65.1112 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 5.5, 14.5 )
+
 [sub_resource type="CapsuleShape2D" id=49]
 radius = 13.5843
-height = 11.4345
+height = 6.8314
 
 [node name="character" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 2
+collision_mask = 9
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -584,17 +448,59 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/PipeAttack/blend_position = Vector2( -0.0491284, 0.206897 )
 parameters/Run/blend_position = Vector2( -0.998498, 0 )
 
+[node name="Hurtbox" parent="." instance=ExtResource( 5 )]
+position = Vector2( 16, -9 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( -16.5, 0.5 )
+shape = SubResource( 50 )
+
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -9 )
+rotation = 3.14159
 scale = Vector2( 0.956985, 0.984375 )
 
 [node name="PipeHitbox" parent="HitboxPivot" instance=ExtResource( 4 )]
 position = Vector2( 0, -3.04762 )
-collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="HitboxPivot/PipeHitbox" index="0"]
 position = Vector2( 17.7641, 3.04762 )
 shape = SubResource( 49 )
+disabled = true
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+current = true
+limit_left = -40
+limit_top = -270
+limit_right = 350
+limit_bottom = 200
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="UI" instance=ExtResource( 6 )]
+margin_left = 8.0
+margin_top = 5.0
+margin_right = 112.0
+margin_bottom = 14.0
+
+[node name="Sprite3" type="Sprite" parent="UI"]
+position = Vector2( 159, 137.123 )
+rotation = 3.14159
+scale = Vector2( -0.313666, -0.150966 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( -1.108, -32.838, 733.122, 200 )
+
+[node name="Sprite4" type="Sprite" parent="UI"]
+position = Vector2( 43, 156 )
+rotation = 3.14159
+scale = Vector2( -0.164979, -0.113979 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 10, -24, 722, 545.613 )
+region_filter_clip = true
 
 [editable path="HitboxPivot/PipeHitbox"]
