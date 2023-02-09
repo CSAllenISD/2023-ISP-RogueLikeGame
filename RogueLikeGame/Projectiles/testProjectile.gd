@@ -3,6 +3,7 @@ extends Node2D
 
 const LIFESPAN = 30 # amount of time until projectile dies
 const SPEED = 100
+const DAMAGE = 10
 var DIRECTION = 0#angle
 var _life
 var _velocity
@@ -34,7 +35,7 @@ func destroy():
 func _on_Area2D_body_entered(body):
 	chara = body.get_parent()
 	if chara.name == "character":
-		chara.health -= 30
+		chara.health -= DAMAGE
 	print(chara)	
 	destroy()
 	pass # Replace with function body.

@@ -876,6 +876,15 @@ position = Vector2( 49, 50 )
 [node name="turret" parent="." instance=ExtResource( 17 )]
 position = Vector2( 90, -185 )
 
+[node name="Node2D" parent="." instance=ExtResource( 17 )]
+position = Vector2( 215, -136 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 111, -139 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 245, -185 )
+
 [connection signal="area_entered" from="YSort/Dummys/Dummy2/Hurtbox" to="YSort/Dummys/Dummy2" method="_on_Hurtbox_area_entered"]
 [connection signal="animation_finished" from="YSort/Dummys/Dummy2/AnimatedSprite" to="YSort/Dummys/Dummy2" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_entered"]

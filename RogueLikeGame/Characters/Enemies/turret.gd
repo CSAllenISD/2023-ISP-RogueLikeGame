@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var timer = .02
+var timer = .4
 var chara
 var ARROW = load("res://RogueLikeGame/Projectiles/testProjectile.tscn")
 var arrow
@@ -24,7 +24,7 @@ func _process(delta):
 		queue_free()
 	timer -= delta 
 	if timer <= 0:
-		timer = .02
+		timer = .4
 		arrow = ARROW.instance()
 		arrow.position = self.position
 		main.add_child(arrow)
