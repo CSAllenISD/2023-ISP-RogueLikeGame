@@ -13,12 +13,12 @@ var chara
 var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
-	DIRECTION = rng.randf_range(0, 360.0)
+	#DIRECTION = rng.randf_range(0, 360.0)
 	self._life = LIFESPAN
-	self.rotation_degrees = DIRECTION
-	self._velocity = Vector2(0,SPEED).rotated(DIRECTION*3.14/180)
+	#self.rotation_degrees = DIRECTION
+	#self._velocity = Vector2(0,SPEED).rotated(DIRECTION*3.14/180)
 	pass # Replace with function body.
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,7 +26,7 @@ func _process(delta):
 	if self._life <= 0:
 		destroy()
 	self.position[0] += _velocity[0]*delta
-	self.position[1	] += _velocity[1]*delta
+	self.position[1] += _velocity[1]*delta
 	
 func destroy():
 	queue_free()
@@ -36,7 +36,7 @@ func _on_Area2D_body_entered(body):
 	chara = body.get_parent()
 	if chara.name == "character":
 		chara.health -= DAMAGE
-	print(chara)	
+	
 	destroy()
 	pass # Replace with function body.
 

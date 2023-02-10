@@ -18,7 +18,7 @@ position = Vector2( -0.15, -0.2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.104701, 0.09375 )
+scale = Vector2( 0.219017, 0.213542 )
 texture = ExtResource( 1 )
 
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]

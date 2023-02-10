@@ -620,6 +620,7 @@ margin_right = 112.0
 margin_bottom = 14.0
 
 [node name="Sprite3" type="Sprite" parent="UI"]
+visible = false
 position = Vector2( 159, 137.123 )
 rotation = 3.14159
 scale = Vector2( -0.313666, -0.150966 )
@@ -628,6 +629,7 @@ region_enabled = true
 region_rect = Rect2( -1.108, -32.838, 733.122, 200 )
 
 [node name="Sprite4" type="Sprite" parent="UI"]
+visible = false
 position = Vector2( 43, 156 )
 rotation = 3.14159
 scale = Vector2( -0.164979, -0.113979 )

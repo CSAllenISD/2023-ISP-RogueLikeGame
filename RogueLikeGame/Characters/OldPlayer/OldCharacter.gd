@@ -30,13 +30,14 @@ func _process(delta):
 		ATTACK:
 			attack_state(delta)
 	
-func move_state(delta):
-	#var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	
-	#if mouse_direction.x > 0 and sprite.flip_h:
-		#sprite.flip_h = false
-	#elif mouse_direction.x < 0 and not sprite.flip_h:
-		#sprite.flip_h = true
+func move_state(delta):
+	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	
+	if mouse_direction.x > 0 and sprite.flip_h:
+		sprite.flip_h = false
+	elif mouse_direction.x < 0 and not sprite.flip_h:
+		sprite.flip_h = true
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
