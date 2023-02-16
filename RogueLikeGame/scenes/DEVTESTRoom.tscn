@@ -1,20 +1,14 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileSetDark.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/Kevin MacLeod - P. I. Tchaikovsky_ Dance of the Sugar Plum Fairy.mp3" type="AudioStream" id=3]
-[ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hurtbox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://RogueLikeGame/Characters/Enemies/Dummy.gd" type="Script" id=5]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileset.png" type="Texture" id=6]
-[ext_resource path="res://RogueLikeGame/assets/dummyhit2.png" type="Texture" id=7]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/Gnome.tscn" type="PackedScene" id=8]
 [ext_resource path="res://RogueLikeGame/assets/Bowser.png" type="Texture" id=9]
 [ext_resource path="res://RogueLikeGame/autoloads/BowserSpeech.tscn" type="PackedScene" id=10]
 [ext_resource path="res://RogueLikeGame/scenes/BowserArea.gd" type="Script" id=11]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/Dummy.tscn" type="PackedScene" id=13]
-[ext_resource path="res://RogueLikeGame/assets/metal-pipe-falling-sound-effect-By-Tuna.mp3" type="AudioStream" id=14]
-[ext_resource path="res://RogueLikeGame/assets/dummy.png" type="Texture" id=15]
-[ext_resource path="res://RogueLikeGame/assets/dummyhit1.png" type="Texture" id=16]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/turret.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -748,19 +742,8 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 radius = 100.395
 height = 79.8821
 
-[sub_resource type="RectangleShape2D" id=101]
-extents = Vector2( 8.5, 12.5 )
-
-[sub_resource type="SpriteFrames" id=102]
-animations = [ {
-"frames": [ ExtResource( 16 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "hitanimate",
-"speed": 50.0
-} ]
-
 [sub_resource type="CircleShape2D" id=99]
-radius = 655.515
+radius = 270.0
 
 [node name="DevRoom" type="Node2D"]
 pause_mode = 1
@@ -800,29 +783,13 @@ collision_mask = 19
 [node name="Bowser" type="StaticBody2D" parent="YSort/BowserNode"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/BowserNode/Bowser"]
-position = Vector2( 164, -200 )
+position = Vector2( 262, -196 )
 rotation = -0.0541052
 scale = Vector2( 0.1, 0.1 )
 shape = SubResource( 100 )
 
 [node name="BowserSprite" type="Sprite" parent="YSort/BowserNode"]
-position = Vector2( 164, -206 )
-scale = Vector2( 0.0841463, 0.078866 )
-texture = ExtResource( 9 )
-
-[node name="BowserNode2" type="YSort" parent="YSort"]
-rotation = -0.328122
-
-[node name="Bowser" type="StaticBody2D" parent="YSort/BowserNode2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/BowserNode2/Bowser"]
-position = Vector2( 193.52, -146.448 )
-rotation = -0.0541052
-scale = Vector2( 0.1, 0.1 )
-shape = SubResource( 100 )
-
-[node name="BowserSprite" type="Sprite" parent="YSort/BowserNode2"]
-position = Vector2( 192.496, -152.468 )
+position = Vector2( 260, -202 )
 scale = Vector2( 0.0841463, 0.078866 )
 texture = ExtResource( 9 )
 
@@ -831,34 +798,11 @@ texture = ExtResource( 9 )
 [node name="Dummy" parent="YSort/Dummys" instance=ExtResource( 13 )]
 position = Vector2( 18, 105 )
 
-[node name="Dummy2" type="Node2D" parent="YSort/Dummys"]
-position = Vector2( 18, 53 )
-script = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="YSort/Dummys/Dummy2"]
-position = Vector2( 0, -6 )
-texture = ExtResource( 15 )
-
-[node name="Hurtbox" parent="YSort/Dummys/Dummy2" instance=ExtResource( 4 )]
-collision_layer = 8
-
-[node name="CollisionShape2D" parent="YSort/Dummys/Dummy2/Hurtbox" index="0"]
-position = Vector2( -0.5, -17.5 )
-shape = SubResource( 101 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Dummys/Dummy2"]
-visible = false
-position = Vector2( 0, -6 )
-frames = SubResource( 102 )
-animation = "hitanimate"
-frame = 1
-
-[node name="HitSound" type="AudioStreamPlayer2D" parent="YSort/Dummys/Dummy2"]
-stream = ExtResource( 14 )
-volume_db = 0.874
+[node name="Dummy2" parent="YSort/Dummys" instance=ExtResource( 13 )]
+position = Vector2( 18, 60 )
 
 [node name="Gnome" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 126, 77 )
+position = Vector2( 297, 42 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
@@ -866,34 +810,23 @@ volume_db = -1.492
 autoplay = true
 
 [node name="CutScenetrigger" type="Area2D" parent="."]
-position = Vector2( 161, -212 )
+position = Vector2( 251, -228 )
 scale = Vector2( 0.1, 0.1 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CutScenetrigger"]
-visible = false
-position = Vector2( 10, 330 )
+position = Vector2( 110, 320 )
 shape = SubResource( 99 )
 
 [node name="BowserSpeech" parent="CutScenetrigger" instance=ExtResource( 10 )]
 
 [node name="turret" parent="." instance=ExtResource( 17 )]
-position = Vector2( 90, -185 )
-
-[node name="Node2D" parent="." instance=ExtResource( 17 )]
-position = Vector2( 215, -136 )
+position = Vector2( 43, -223 )
 
 [node name="Node2D2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 111, -139 )
+position = Vector2( 42, -149 )
 
-[node name="Node2D3" parent="." instance=ExtResource( 17 )]
-position = Vector2( 245, -185 )
-
-[connection signal="area_entered" from="YSort/Dummys/Dummy2/Hurtbox" to="YSort/Dummys/Dummy2" method="_on_Hurtbox_area_entered"]
-[connection signal="animation_finished" from="YSort/Dummys/Dummy2/AnimatedSprite" to="YSort/Dummys/Dummy2" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_exited"]
-
-[editable path="YSort/Dummys/Dummy2/Hurtbox"]

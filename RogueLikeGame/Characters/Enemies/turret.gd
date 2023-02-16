@@ -30,7 +30,7 @@ func _process(delta):
 		queue_free()
 	timer -= delta 
 	if timer <= 0:
-		timer = .4
+		timer = 1
 		arrow = ARROW.instance()
 		arrow.position = self.position
 		var player_pos = get_parent().get_node("YSort/character").position

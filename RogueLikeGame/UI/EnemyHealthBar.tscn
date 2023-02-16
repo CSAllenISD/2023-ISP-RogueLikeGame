@@ -3,19 +3,18 @@
 [ext_resource path="res://RogueLikeGame/assets/Healthbar-Over.png" type="Texture" id=1]
 [ext_resource path="res://RogueLikeGame/assets/Healthbar-Progress.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/Healthbar-Under.png" type="Texture" id=3]
-[ext_resource path="res://RogueLikeGame/UI/Health Bar.gd" type="Script" id=4]
+[ext_resource path="res://RogueLikeGame/UI/EnemyHealthBar.gd" type="Script" id=4]
 
 [node name="Health Bar" type="TextureProgress"]
 anchor_top = -0.006
 anchor_bottom = -0.006
 margin_top = 0.08
 margin_right = 104.0
-margin_bottom = 9.08
+margin_bottom = 6.08
 value = 100.0
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
 tint_under = Color( 0.0470588, 0, 0, 1 )
-tint_progress = Color( 0.423529, 0.0196078, 0.0196078, 1 )
 nine_patch_stretch = true
 stretch_margin_left = 3
 stretch_margin_top = 3

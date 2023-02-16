@@ -1,5 +1,6 @@
 extends Node2D
-
+var max_health = 50
+var health = 50
 func create_dummy_effect():
 	
 	var DummyEffect = load("res://RogueLikeGame/Effects/DummyEffect.tscn")
@@ -16,6 +17,7 @@ func _on_Hurtbox_area_entered(area):
 	$AnimatedSprite.play("hitanimate")
 	$AnimatedSprite.visible = true
 	$HitSound.play()
+	health -= 10
 	
 
 
