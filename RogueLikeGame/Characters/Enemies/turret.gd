@@ -8,6 +8,7 @@ var timer = .4
 var chara
 var ARROW = load("res://RogueLikeGame/Projectiles/testProjectile.tscn")
 var arrow
+var max_health = 100
 var health = 100
 var proj_list = []
 var main# Called when the node enters the scene tree for the first time.
