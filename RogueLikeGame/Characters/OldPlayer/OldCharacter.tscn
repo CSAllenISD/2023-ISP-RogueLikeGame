@@ -27,7 +27,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 3 ]
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -581,8 +581,8 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 11 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/PipeAttack/blend_position = Vector2( -0.0491284, 0.206897 )
-parameters/Run/blend_position = Vector2( -0.998498, 0 )
+parameters/PipeAttack/blend_position = Vector2( 0, 0 )
+parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
 position = Vector2( 16, -9 )

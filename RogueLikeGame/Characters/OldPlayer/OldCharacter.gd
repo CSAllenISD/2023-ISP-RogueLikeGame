@@ -13,7 +13,7 @@ var health = 100
 
 var state = MOVE
 var velocity = Vector2.ZERO
-
+var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 onready var sprite: Sprite = get_node("Sprite")
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -29,7 +29,10 @@ func _process(delta):
 			pass
 		ATTACK:
 			attack_state(delta)
-	
+	mouse_direction = Vector2(get_global_mouse_position() - global_position).normalized()
+	animationTree.set("parameters/Idle/blend_position", mouse_direction)
+	animationTree.set("parameters/Run/blend_position", mouse_direction)
+	animationTree.set("parameters/PipeAttack/blend_position", mouse_direction)
 	
 func move_state(delta):
 	#var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -46,9 +49,9 @@ func move_state(delta):
 	if input_vector != Vector2.ZERO:
 		#print(input_vector)
 		
-		animationTree.set("parameters/Idle/blend_position", input_vector)
-		animationTree.set("parameters/Run/blend_position", input_vector)
-		animationTree.set("parameters/PipeAttack/blend_position", input_vector)
+		animationTree.set("parameters/Idle/blend_position", mouse_direction)
+		animationTree.set("parameters/Run/blend_position", mouse_direction)
+		animationTree.set("parameters/PipeAttack/blend_position", mouse_direction)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 		
@@ -69,9 +72,9 @@ func attack_state(delta):
 	if input_vector != Vector2.ZERO:
 		#print(input_vector)
 		
-		animationTree.set("parameters/Idle/blend_position", input_vector)
-		animationTree.set("parameters/Run/blend_position", input_vector)
-		animationTree.set("parameters/PipeAttack/blend_position", input_vector)
+		animationTree.set("parameters/Idle/blend_position", mouse_direction)
+		animationTree.set("parameters/Run/blend_position", mouse_direction)
+		animationTree.set("parameters/PipeAttack/blend_position", mouse_direction)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 		
