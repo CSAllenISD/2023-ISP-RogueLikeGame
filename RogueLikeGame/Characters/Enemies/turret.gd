@@ -41,7 +41,7 @@ func _process(delta):
 		arrow._velocity = Vector2(0,arrow.SPEED).rotated(get_angle_to(player_pos) - 1.5708)
 		main.add_child(arrow)
 		#print(get_angle_to(player.global_position))
-		print(player_pos)
+		
 
 
 func _on_Hurtbox_area_entered(area):
