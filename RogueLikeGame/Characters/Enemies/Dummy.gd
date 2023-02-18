@@ -1,6 +1,6 @@
 extends Node2D
-var max_health = 50
-var health = 50
+var max_health = 100
+var health = 100
 func create_dummy_effect():
 	
 	var DummyEffect = load("res://RogueLikeGame/Effects/DummyEffect.tscn")
