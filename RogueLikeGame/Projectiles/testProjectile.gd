@@ -8,6 +8,8 @@ var DIRECTION = 0#angle
 var _life
 var _velocity
 var chara
+var main
+var EFFECT = load("res://RogueLikeGame/Effects/test_projectile_destroy.tscn")
 # Called when the node enters the scene tree for the first time.
 
 var rng = RandomNumberGenerator.new()
@@ -15,6 +17,7 @@ func _ready():
 	rng.randomize()
 	#DIRECTION = rng.randf_range(0, 360.0)
 	self._life = LIFESPAN
+	self.main = get_parent()
 	#self.rotation_degrees = DIRECTION
 	#self._velocity = Vector2(0,SPEED).rotated(DIRECTION*3.14/180)
 	pass # Replace with function body.
@@ -29,6 +32,10 @@ func _process(delta):
 	self.position[1] += _velocity[1]*delta
 	
 func destroy():
+	var effect = self.EFFECT.instance()
+	effect.position = self.position
+	effect.rotation = self.rotation
+	main.add_child(effect)
 	queue_free()
 	
 	
