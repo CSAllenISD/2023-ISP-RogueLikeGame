@@ -10,7 +10,7 @@ const SWING_LIFE = .3 #how long swing anim takes
 var swing_life = SWING_LIFE
 const swing_angle = 180
 
-const proj_dist = 10
+const proj_dist = 30
 
 
 # Called when the node enters the scene tree for the first time.
