@@ -1,9 +1,8 @@
-[gd_scene load_steps=112 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileSetDark.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/Kevin MacLeod - P. I. Tchaikovsky_ Dance of the Sugar Plum Fairy.mp3" type="AudioStream" id=3]
-[ext_resource path="res://RogueLikeGame/attacks/sword.tscn" type="PackedScene" id=4]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileset.png" type="Texture" id=6]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/Gnome.tscn" type="PackedScene" id=8]
 [ext_resource path="res://RogueLikeGame/assets/Bowser.png" type="Texture" id=9]
@@ -828,10 +827,6 @@ position = Vector2( 43, -223 )
 
 [node name="Node2D2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 42, -149 )
-
-[node name="attack" parent="." instance=ExtResource( 4 )]
-position = Vector2( 187, 53 )
-rotation = 3.13508
 
 [connection signal="body_entered" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_exited"]

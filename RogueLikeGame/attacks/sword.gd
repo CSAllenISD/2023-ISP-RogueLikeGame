@@ -4,13 +4,14 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const PROJ_LIFE = .3
+const DAMAGE = 25
+const PROJ_LIFE = .1
 var proj_life = PROJ_LIFE  # how long until damage effect disapears
 const SWING_LIFE = .3 #how long swing anim takes
 var swing_life = SWING_LIFE
 const swing_angle = 180
 
-const proj_dist = 30
+const proj_dist = 25
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,7 +41,7 @@ var creature
 func _on_hitbox_body_entered(body):
 	creature = body.get_parent()
 	print(creature)
-	creature.health -= 50
+	creature.health -= DAMAGE
 
 
 func _on_hitbox_area_entered(area):
