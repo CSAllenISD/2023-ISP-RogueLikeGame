@@ -9,6 +9,7 @@ var _life
 var _velocity
 var chara
 var main
+var health = 1
 var EFFECT = load("res://RogueLikeGame/Effects/test_projectile_destroy.tscn")
 # Called when the node enters the scene tree for the first time.
 
@@ -30,7 +31,8 @@ func _process(delta):
 		destroy()
 	self.position[0] += _velocity[0]*delta
 	self.position[1] += _velocity[1]*delta
-	
+	if health <= 0:
+		destroy()
 func destroy():
 	var effect = self.EFFECT.instance()
 	effect.position = self.position

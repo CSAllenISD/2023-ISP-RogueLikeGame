@@ -1,12 +1,14 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.gd" type="Script" id=1]
 [ext_resource path="res://RogueLikeGame/assets/HomelessMan.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/PipeSwing.png" type="Texture" id=3]
+[ext_resource path="res://RogueLikeGame/assets/Voicy_Roblox Sword lunge.wav" type="AudioStream" id=4]
 [ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://RogueLikeGame/UI/Health Bar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://RogueLikeGame/assets/pngaaa.com-3925405.png" type="Texture" id=7]
 [ext_resource path="res://RogueLikeGame/assets/pngaaa.com-5077641.png" type="Texture" id=8]
+[ext_resource path="res://RogueLikeGame/assets/Roblox Sword Slash Sound Effect.mp3" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -57,10 +59,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 4 ]
+"values": [ 2, 2 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -69,7 +71,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -88,10 +90,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 11, 12, 13, 14 ]
+"values": [ 12, 11 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -100,7 +102,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -119,10 +121,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 6, 7, 8, 9 ]
+"values": [ 7, 6 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -131,7 +133,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -162,7 +164,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -436,6 +438,7 @@ anims/RunUp = SubResource( 29 )
 anims/UpIdle = SubResource( 25 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -10 )
 scale = Vector2( 0.956985, 0.984375 )
 texture = ExtResource( 2 )
@@ -443,7 +446,6 @@ hframes = 12
 region_filter_clip = true
 
 [node name="PipeAttack" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1, -9 )
 scale = Vector2( 0.978261, 1.02 )
 texture = ExtResource( 3 )
@@ -472,7 +474,6 @@ shape = SubResource( 50 )
 [node name="Camera2D2" type="Camera2D" parent="."]
 current = true
 limit_left = -40
-limit_top = -270
 limit_right = 350
 limit_bottom = 200
 
@@ -485,6 +486,7 @@ margin_right = 112.0
 margin_bottom = 14.0
 
 [node name="Sprite3" type="Sprite" parent="UI"]
+visible = false
 position = Vector2( 159, 137.123 )
 rotation = 3.14159
 scale = Vector2( -0.313666, -0.150966 )
@@ -493,6 +495,7 @@ region_enabled = true
 region_rect = Rect2( -1.108, -32.838, 733.122, 200 )
 
 [node name="Sprite4" type="Sprite" parent="UI"]
+visible = false
 position = Vector2( 43, 156 )
 rotation = 3.14159
 scale = Vector2( -0.164979, -0.113979 )
@@ -506,3 +509,11 @@ occluder = SubResource( 51 )
 
 [node name="attackPoint" type="Node2D" parent="."]
 position = Vector2( 0, -7 )
+
+[node name="Slash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 0.874
+
+[node name="Slash2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = 0.874

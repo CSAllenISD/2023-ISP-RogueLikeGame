@@ -5,13 +5,13 @@ extends Node2D
 # var a = 2
 # var b = "text"
 const DAMAGE = 25
-const PROJ_LIFE = .1
+const PROJ_LIFE = .2
 var proj_life = PROJ_LIFE  # how long until damage effect disapears
-const SWING_LIFE = .3 #how long swing anim takes
+const SWING_LIFE = .2 #how long swing anim takes
 var swing_life = SWING_LIFE
 const swing_angle = 180
 
-const proj_dist = 25
+const proj_dist = 30
 
 
 # Called when the node enters the scene tree for the first time.

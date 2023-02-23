@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Roblox Sword Slash Sound Effect.mp3-138eb3e32d0d56618053f411b5e0f58b.mp3str"
+
+[deps]
+
+source_file="res://RogueLikeGame/assets/Roblox Sword Slash Sound Effect.mp3"
+dest_files=[ "res://.import/Roblox Sword Slash Sound Effect.mp3-138eb3e32d0d56618053f411b5e0f58b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
