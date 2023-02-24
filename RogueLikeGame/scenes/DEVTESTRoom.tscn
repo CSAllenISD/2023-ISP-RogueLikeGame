@@ -1,8 +1,10 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=113 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileSetDark.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/Kevin MacLeod - P. I. Tchaikovsky_ Dance of the Sugar Plum Fairy.mp3" type="AudioStream" id=3]
+[ext_resource path="res://RogueLikeGame/scenes/DatingStart.gd" type="Script" id=4]
+[ext_resource path="res://RogueLikeGame/assets/door.png" type="Texture" id=5]
 [ext_resource path="res://RogueLikeGame/assets/BasicTileset.png" type="Texture" id=6]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/Gnome.tscn" type="PackedScene" id=8]
 [ext_resource path="res://RogueLikeGame/assets/Bowser.png" type="Texture" id=9]
@@ -812,6 +814,68 @@ position = Vector2( 18, 60 )
 [node name="Gnome" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 297, 42 )
 
+[node name="Gnomes" type="Node2D" parent="YSort"]
+
+[node name="Gnome" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 42, -350 )
+
+[node name="Gnome2" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 22, -371 )
+
+[node name="Gnome3" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 65, -377 )
+
+[node name="Gnome4" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 46, -386 )
+
+[node name="Gnome5" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 26, -408 )
+
+[node name="Gnome6" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 77, -415 )
+
+[node name="Gnome7" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 234, -340 )
+
+[node name="Gnome8" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 268, -341 )
+
+[node name="Gnome9" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 256, -365 )
+
+[node name="Gnome10" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 229, -372 )
+
+[node name="Gnome11" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 303, -347 )
+
+[node name="Gnome12" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 294, -376 )
+
+[node name="Gnome13" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 278, -400 )
+
+[node name="Gnome14" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 257, -404 )
+
+[node name="Gnome15" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 25, -513 )
+
+[node name="Gnome16" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 265, -520 )
+
+[node name="Gnome17" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 308, -503 )
+
+[node name="Gnome19" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 92, -514 )
+
+[node name="Gnome20" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 265, -496 )
+
+[node name="Gnome18" parent="YSort/Gnomes" instance=ExtResource( 8 )]
+position = Vector2( 24, -488 )
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = -1.492
@@ -830,11 +894,32 @@ shape = SubResource( 99 )
 
 [node name="BowserSpeech" parent="CutScenetrigger" instance=ExtResource( 10 )]
 
+[node name="DatingStart" type="Area2D" parent="."]
+position = Vector2( 251, -228 )
+scale = Vector2( 0.1, 0.1 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DatingStart"]
+position = Vector2( 370, 3730 )
+shape = SubResource( 99 )
+
+[node name="BowserSpeech" parent="DatingStart" instance=ExtResource( 10 )]
+visible = false
+
 [node name="turret" parent="." instance=ExtResource( 17 )]
 position = Vector2( 43, -223 )
 
 [node name="Node2D2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 42, -149 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 287, 143 )
+scale = Vector2( 1.04392, 0.556641 )
+texture = ExtResource( 5 )
+
 [connection signal="body_entered" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="CutScenetrigger" to="CutScenetrigger" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="DatingStart" to="DatingStart" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="DatingStart" to="DatingStart" method="_on_Area2D_body_exited"]

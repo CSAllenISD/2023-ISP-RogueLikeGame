@@ -20,7 +20,9 @@ func _ready():
 	queue_text(" It was perfect.")
 	queue_text("But, no,")
 	queue_text("you just had to blow it up.")
-	queue_text("Im not having sex with you waltah")
+	queue_text("You and your pride and your ego!")
+	queue_text("You just had to be the man.")
+	queue_text("If you'd done your job, known your place, we'd all be fine right now.")
 func _process(delta):
 	match current_state:
 		State.READY:

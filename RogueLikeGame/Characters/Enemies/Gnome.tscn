@@ -1,6 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://RogueLikeGame/assets/gnome.png" type="Texture" id=1]
+[ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hurtbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RogueLikeGame/Characters/Enemies/Gnome.gd" type="Script" id=3]
+[ext_resource path="res://RogueLikeGame/Stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RogueLikeGame/assets/goblin-death.mp3" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -30,18 +34,39 @@ animations = [ {
 radius = 4.0
 height = 4.0
 
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 5.0
+height = 12.0
+
 [node name="Gnome" type="KinematicBody2D"]
 position = Vector2( 24, -6 )
 collision_layer = 16
+script = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( -24, -9 )
+position = Vector2( 0, -7 )
 frames = SubResource( 5 )
 animation = "gnome"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -24, 3 )
+position = Vector2( 9.53674e-07, 7 )
 rotation = 1.5708
 shape = SubResource( 6 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 2 )]
+collision_layer = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 7 )
+
+[node name="Stats" parent="." instance=ExtResource( 4 )]
+max_health = 50
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 0.874
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

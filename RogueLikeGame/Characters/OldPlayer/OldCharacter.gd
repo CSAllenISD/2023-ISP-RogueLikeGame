@@ -1,7 +1,7 @@
 extends KinematicBody2D
-const ACCELERATION = 600
-const MAX_SPEED = 100
-var FRICTION = 15000000
+export var ACCELERATION = 600
+export var MAX_SPEED = 100
+export var FRICTION = 15000000
 
 onready var main = get_parent()
 enum{
@@ -22,6 +22,7 @@ onready var sprite: Sprite = get_node("Sprite")
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+
 var melee_cooldown = 0
 func _process(delta):
 	

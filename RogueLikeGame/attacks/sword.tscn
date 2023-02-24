@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://RogueLikeGame/assets/attacks/swings/testsword/slash2.png" type="Texture" id=1]
 [ext_resource path="res://RogueLikeGame/assets/attacks/swings/testsword/sword.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://RogueLikeGame/assets/attacks/swings/testsword/slash4.png" type="Texture" id=4]
 [ext_resource path="res://RogueLikeGame/assets/attacks/swings/testsword/slash3.png" type="Texture" id=5]
 [ext_resource path="res://RogueLikeGame/assets/attacks/swings/testsword/slash1.png" type="Texture" id=6]
+[ext_resource path="res://RogueLikeGame/attacks/swordhitbox.gd" type="Script" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,13 +40,13 @@ scale = Vector2( 2, 2 )
 [node name="Sprite" type="AnimatedSprite" parent="slash"]
 position = Vector2( -1.00002, -5 )
 frames = SubResource( 1 )
-frame = 6
 playing = true
 
 [node name="hitbox" type="Area2D" parent="slash"]
 position = Vector2( -0.499957, 12 )
 collision_layer = 0
 collision_mask = 8
+script = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="slash/hitbox"]
 position = Vector2( 4.17233e-07, 1.90735e-06 )

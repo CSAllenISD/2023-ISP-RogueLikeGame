@@ -41,6 +41,7 @@ value = 100.0
 texture_over = ExtResource( 10 )
 texture_progress = ExtResource( 9 )
 tint_under = Color( 0.0470588, 0, 0, 1 )
+tint_progress = Color( 0.545098, 0.0392157, 0.0392157, 1 )
 nine_patch_stretch = true
 stretch_margin_left = 3
 stretch_margin_top = 3
@@ -79,7 +80,7 @@ frame = 1
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = 0.874
+volume_db = 5.244
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
