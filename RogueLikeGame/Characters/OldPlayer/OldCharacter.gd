@@ -1,7 +1,7 @@
 extends KinematicBody2D
 export var ACCELERATION = 600
-export var MAX_SPEED = 100
-export var FRICTION = 15000000
+export var MAX_SPEED = 150
+export var FRICTION = 1500000000
 
 onready var main = get_parent()
 enum{

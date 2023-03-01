@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RogueLikeGame/assets/toppng.com-hit-marker-transparent-hitmarker-transparent-392x391.png" type="Texture" id=1]
+[ext_resource path="res://Effect.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), null ],
+"loop": true,
+"name": "animation",
+"speed": 2.0
+} ]
+
+[node name="AnimatedSprite" type="AnimatedSprite"]
+scale = Vector2( 0.0169349, 0.0118735 )
+frames = SubResource( 1 )
+animation = "animation"
+playing = true
+offset = Vector2( 0, 2 )
+script = ExtResource( 2 )
+
+[connection signal="animation_finished" from="." to="." method="_on_AnimatedSprite_animation_finished"]
