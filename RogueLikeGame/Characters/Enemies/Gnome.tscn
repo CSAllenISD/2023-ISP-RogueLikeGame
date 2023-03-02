@@ -52,7 +52,7 @@ script = ExtResource( 3 )
 position = Vector2( 0, -7 )
 frames = SubResource( 5 )
 animation = "gnome"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -76,6 +76,7 @@ volume_db = 0.874
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+visible = false
 shape = SubResource( 8 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.gd" type="Script" id=1]
-[ext_resource path="res://RogueLikeGame/assets/HomelessMan.png" type="Texture" id=2]
+[ext_resource path="res://RogueLikeGame/assets/simplifiedcharacter.png" type="Texture" id=2]
 [ext_resource path="res://RogueLikeGame/assets/PipeSwing.png" type="Texture" id=3]
 [ext_resource path="res://RogueLikeGame/assets/Voicy_Roblox Sword lunge.wav" type="AudioStream" id=4]
 [ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
@@ -404,11 +404,11 @@ graph_offset = Vector2( 0, 65.1112 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
 [sub_resource type="RectangleShape2D" id=50]
-extents = Vector2( 5, 8.5 )
+extents = Vector2( 2, 6 )
 
 [sub_resource type="OccluderPolygon2D" id=51]
 cull_mode = 1
-polygon = PoolVector2Array( 0, 3, 1, 3, 2, -8, 2, -14, 1, -17, 0, -18, -1, -17, -2, -14, -2, -8, -1, 1, -1, 3 )
+polygon = PoolVector2Array( 0, 3, 1, 3, 2, -8, 1, -10, 1, -10, 0, -10, -1, -10, -1, -10, -2, -8, -1, 1, -1, 3 )
 
 [node name="character" type="KinematicBody2D"]
 position = Vector2( 0, -12 )
@@ -438,14 +438,23 @@ anims/RunUp = SubResource( 29 )
 anims/UpIdle = SubResource( 25 )
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, -10 )
 scale = Vector2( 0.956985, 0.984375 )
 texture = ExtResource( 2 )
 hframes = 12
 region_filter_clip = true
 
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -10 )
+scale = Vector2( 0.956985, 0.984375 )
+texture = ExtResource( 2 )
+hframes = 12
+frame = 3
+region_filter_clip = true
+
 [node name="PipeAttack" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1, -9 )
 scale = Vector2( 0.978261, 1.02 )
 texture = ExtResource( 3 )
@@ -468,7 +477,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( -16, 2.5 )
+position = Vector2( -16, 5 )
 shape = SubResource( 50 )
 
 [node name="Camera2D2" type="Camera2D" parent="."]
@@ -476,6 +485,7 @@ current = true
 limit_left = -40
 limit_right = 350
 limit_bottom = 200
+limit_smoothed = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -517,3 +527,5 @@ volume_db = 0.874
 [node name="Slash2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 volume_db = 0.874
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

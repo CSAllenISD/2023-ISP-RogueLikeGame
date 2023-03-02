@@ -1,7 +1,7 @@
 extends KinematicBody2D
 export var ACCELERATION = 600
 export var MAX_SPEED = 150
-export var FRICTION = 1500000000
+export var FRICTION = 150000000000
 
 onready var main = get_parent()
 enum{
@@ -24,6 +24,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 var melee_cooldown = 0
+
 func _process(delta):
 	
 	match state:
@@ -39,6 +40,7 @@ func _process(delta):
 	animationTree.set("parameters/PipeAttack/blend_position", mouse_direction)
 	if melee_cooldown > 0:
 		melee_cooldown -= delta
+
 	
 func move_state(delta):
 	
@@ -123,9 +125,9 @@ func melee():
 	
 	
 	if melee_cooldown <= 0:
-		attack_timer = .6
+		attack_timer = .3
 		state = ATTACK
-		melee_cooldown += .5
+		melee_cooldown += .3
 		attack = MELEE.instance()
 		attack.rotate(get_angle_to(get_global_mouse_position()))
 		attack.position = $attackPoint.position
@@ -138,3 +140,5 @@ func attack_state_finished():
 	$Sprite.visible = true
 	$PipeAttack.visible = false
 
+
+	
