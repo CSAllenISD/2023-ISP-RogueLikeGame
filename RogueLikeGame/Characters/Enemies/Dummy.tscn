@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://RogueLikeGame/assets/dummy.png" type="Texture" id=1]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/Dummy.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://RogueLikeGame/assets/Healthbar-Under.png" type="Texture" id=8]
 [ext_resource path="res://RogueLikeGame/assets/Healthbar-Progress.png" type="Texture" id=9]
 [ext_resource path="res://RogueLikeGame/assets/Healthbar-Over.png" type="Texture" id=10]
+[ext_resource path="res://RogueLikeGame/Effects/Light.tscn" type="PackedScene" id=11]
+[ext_resource path="res://RogueLikeGame/assets/light.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.5, 12.5 )
@@ -80,7 +82,13 @@ frame = 1
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = 5.244
+volume_db = 23.596
+
+[node name="Light" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, -10 )
+texture = ExtResource( 12 )
+texture_scale = 0.1
+energy = 0.5
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

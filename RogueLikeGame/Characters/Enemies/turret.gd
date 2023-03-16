@@ -4,7 +4,9 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var timer = .4
+export var max_timer = .4
+export var projectile_speed = 100
+var timer = max_timer
 var chara
 var ARROW = load("res://RogueLikeGame/Projectiles/testProjectile.tscn")
 var arrow
@@ -31,14 +33,14 @@ func _process(delta):
 		queue_free()
 	timer -= delta 
 	if timer <= 0:
-		timer = 1
+		timer = max_timer
 		arrow = ARROW.instance()
 		arrow.position = self.position
 		var player_pos = get_parent().get_node("YSort/character").position
 		
 		arrow.look_at(player_pos)
 		arrow.DIRECTION = get_angle_to(player_pos)
-		arrow._velocity = Vector2(0,arrow.SPEED).rotated(get_angle_to(player_pos) - 1.5708)
+		arrow._velocity = Vector2(0,projectile_speed).rotated(get_angle_to(player_pos) - 1.5708)
 		main.add_child(arrow)
 		#print(get_angle_to(player.global_position))
 		

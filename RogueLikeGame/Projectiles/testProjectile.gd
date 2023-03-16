@@ -3,7 +3,7 @@ extends Node2D
 
 const LIFESPAN = 30 # amount of time until projectile dies
 const SPEED = 100
-const DAMAGE = 10
+const DAMAGE = 40
 var DIRECTION = 0#angle
 var _life
 var _velocity

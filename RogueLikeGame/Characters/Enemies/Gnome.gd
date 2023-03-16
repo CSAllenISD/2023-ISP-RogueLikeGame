@@ -3,9 +3,11 @@ extends KinematicBody2D
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
 export var FRICTION = 200
-
+export var DAMAGE = 20
+export var MAX_HEALTH = 100
 onready var stats = $Stats
-onready var health = stats.health
+#onready var health = stats.health
+onready var health = MAX_HEALTH
 onready var playerdetectionzone = $PlayerDetectionZone
 var hitstun = 0
 var knockback = Vector2.ZERO
@@ -51,3 +53,11 @@ func _on_Hurtbox_area_entered(area):
 	knockback = (knockback.normalized() * knockbackSpeed) 
 	#$Hurtbox.set_deferred("monitoring", false)
 	$death.play()
+
+
+
+
+func _on_Hitbox_body_entered(body):
+	
+	body.health -= DAMAGE
+	

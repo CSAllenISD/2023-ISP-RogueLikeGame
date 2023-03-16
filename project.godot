@@ -34,10 +34,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/InvitationItem.gd"
 }, {
+"base": "State",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://PlayerState.gd"
+}, {
 "base": "PanelContainer",
 "class": "RepositoryItem",
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/RepositoryItem.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://StateMachine.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
@@ -45,13 +60,16 @@ _global_script_class_icons={
 "FiniteStateMachine": "",
 "GistItem": "",
 "InvitationItem": "",
-"RepositoryItem": ""
+"PlayerState": "",
+"RepositoryItem": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]
 
 config/name="roguelikegame"
-run/main_scene="res://RogueLikeGame/titleScreen.tscn"
+run/main_scene="res://RogueLikeGame/Rooms/StartingRoom.tscn"
 config/icon="res://RogueLikeGame/assets/walter.jpeg"
 
 [autoload]
@@ -61,6 +79,7 @@ IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
 UserData="*res://addons/github-integration/scripts/user_data.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 Paused="*res://RogueLikeGame/autoloads/Paused.tscn"
+dungeon_generation="*res://dungeon_generation.gd"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://RogueLikeGame/assets/gnome.png" type="Texture" id=1]
 [ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hurtbox.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://RogueLikeGame/Stats.tscn" type="PackedScene" id=4]
 [ext_resource path="res://RogueLikeGame/assets/goblin-death.mp3" type="AudioStream" id=5]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/PlayerDetectionZone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hitbox.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -36,11 +37,15 @@ radius = 4.0
 height = 4.0
 
 [sub_resource type="CapsuleShape2D" id=7]
-radius = 5.0
+radius = 8.0
 height = 12.0
 
 [sub_resource type="CircleShape2D" id=8]
 radius = 132.306
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 7.0
+height = 6.0
 
 [node name="Gnome" type="KinematicBody2D"]
 position = Vector2( 24, -6 )
@@ -52,7 +57,6 @@ script = ExtResource( 3 )
 position = Vector2( 0, -7 )
 frames = SubResource( 5 )
 animation = "gnome"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,6 +65,7 @@ rotation = 1.5708
 shape = SubResource( 6 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 2 )]
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -79,7 +84,17 @@ volume_db = 0.874
 visible = false
 shape = SubResource( 8 )
 
+[node name="Hitbox" parent="." instance=ExtResource( 7 )]
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0, 3 )
+shape = SubResource( 9 )
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]
+[editable path="Hitbox"]

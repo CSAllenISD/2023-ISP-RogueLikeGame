@@ -1,8 +1,8 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.gd" type="Script" id=1]
 [ext_resource path="res://RogueLikeGame/assets/simplifiedcharacter.png" type="Texture" id=2]
-[ext_resource path="res://RogueLikeGame/assets/PipeSwing.png" type="Texture" id=3]
+[ext_resource path="res://RogueLikeGame/assets/dash.png" type="Texture" id=3]
 [ext_resource path="res://RogueLikeGame/assets/Voicy_Roblox Sword lunge.wav" type="AudioStream" id=4]
 [ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://RogueLikeGame/UI/Health Bar.tscn" type="PackedScene" id=6]
@@ -13,6 +13,70 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
 height = 2.0
+
+[sub_resource type="Animation" id=52]
+resource_name = "DashDown"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("DashSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "DashLeft"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("DashSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 10, 11 ]
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "DashRight"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("DashSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 8, 9 ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "DashUp"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("DashSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 7 ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Idle"
@@ -52,25 +116,13 @@ tracks/0/keys = {
 resource_name = "PipeDown"
 length = 0.4
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("PipeAttack:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 2, 2 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -83,25 +135,13 @@ tracks/1/keys = {
 resource_name = "PipeLeft"
 length = 0.4
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("PipeAttack:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 12, 11 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -114,25 +154,13 @@ tracks/1/keys = {
 resource_name = "PipeRight"
 length = 0.4
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("PipeAttack:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 7, 6 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -145,25 +173,13 @@ tracks/1/keys = {
 resource_name = "PipeUp"
 length = 0.4
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("PipeAttack:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 16, 17, 18, 19 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -187,7 +203,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PipeAttack:frame")
+tracks/1/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -196,10 +212,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
+"values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("DashSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -208,7 +224,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ 6 ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -313,6 +329,29 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "DashLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "DashDown"
+
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "DashDown"
+
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "DashRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=60]
+blend_point_0/node = SubResource( 56 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 57 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 58 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 59 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id=30]
 animation = "LeftIdle"
 
@@ -334,29 +373,6 @@ blend_point_2/node = SubResource( 32 )
 blend_point_2/pos = Vector2( 0, -1 )
 blend_point_3/node = SubResource( 33 )
 blend_point_3/pos = Vector2( 1, 0 )
-blend_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id=42]
-animation = "PipeLeft"
-
-[sub_resource type="AnimationNodeAnimation" id=43]
-animation = "PipeDown"
-
-[sub_resource type="AnimationNodeAnimation" id=44]
-animation = "PipeRight"
-
-[sub_resource type="AnimationNodeAnimation" id=45]
-animation = "PipeUp"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=46]
-blend_point_0/node = SubResource( 42 )
-blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 43 )
-blend_point_1/pos = Vector2( 0, 1 )
-blend_point_2/node = SubResource( 44 )
-blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 45 )
-blend_point_3/pos = Vector2( 0, -1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=34]
@@ -386,18 +402,22 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
 
 [sub_resource type="AnimationNodeStateMachine" id=10]
+states/Dash/node = SubResource( 60 )
+states/Dash/position = Vector2( 761, 287.111 )
 states/Idle/node = SubResource( 9 )
 states/Idle/position = Vector2( 676, 192 )
-states/PipeAttack/node = SubResource( 46 )
-states/PipeAttack/position = Vector2( 676, 278.259 )
 states/Run/node = SubResource( 16 )
 states/Run/position = Vector2( 852, 192 )
-transitions = [ "Idle", "Run", SubResource( 17 ), "Run", "Idle", SubResource( 18 ), "Idle", "PipeAttack", SubResource( 47 ), "PipeAttack", "Idle", SubResource( 48 ) ]
+transitions = [ "Idle", "Run", SubResource( 17 ), "Run", "Idle", SubResource( 18 ), "Idle", "Dash", SubResource( 61 ), "Dash", "Idle", SubResource( 62 ), "Run", "Dash", SubResource( 63 ), "Dash", "Run", SubResource( 64 ) ]
 start_node = "Idle"
 graph_offset = Vector2( 0, 65.1112 )
 
@@ -423,6 +443,10 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DashDown = SubResource( 52 )
+anims/DashLeft = SubResource( 53 )
+anims/DashRight = SubResource( 54 )
+anims/DashUp = SubResource( 55 )
 anims/Idle = SubResource( 4 )
 anims/LeftIdle = SubResource( 24 )
 anims/PipeDown = SubResource( 38 )
@@ -444,31 +468,22 @@ texture = ExtResource( 2 )
 hframes = 12
 region_filter_clip = true
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="DashSprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -10 )
 scale = Vector2( 0.956985, 0.984375 )
-texture = ExtResource( 2 )
-hframes = 12
-frame = 3
-region_filter_clip = true
-
-[node name="PipeAttack" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1, -9 )
-scale = Vector2( 0.978261, 1.02 )
 texture = ExtResource( 3 )
-hframes = 20
-frame = 1
-region_rect = Rect2( 0, 0, 800, 100 )
+hframes = 12
+frame = 6
+region_filter_clip = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 11 )
+parameters/Dash/blend_position = Vector2( -0.00158477, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/PipeAttack/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
@@ -482,9 +497,6 @@ shape = SubResource( 50 )
 
 [node name="Camera2D2" type="Camera2D" parent="."]
 current = true
-limit_left = -40
-limit_right = 350
-limit_bottom = 200
 limit_smoothed = true
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -528,4 +540,13 @@ volume_db = 0.874
 stream = ExtResource( 9 )
 volume_db = 0.874
 
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+wait_time = 0.011
+one_shot = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 1, 0, 0, 1 )
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]

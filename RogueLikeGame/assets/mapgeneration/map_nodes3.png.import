@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_Stone.png-903021b32da8d543604c1b1035ff45b9.stex"
+path="res://.import/map_nodes3.png-c417d985bc8bb7473522a2bcad7a9a1d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RogueLikeGame/Tilesets/tileset_Stone.png"
-dest_files=[ "res://.import/tileset_Stone.png-903021b32da8d543604c1b1035ff45b9.stex" ]
+source_file="res://RogueLikeGame/assets/mapgeneration/map_nodes3.png"
+dest_files=[ "res://.import/map_nodes3.png-c417d985bc8bb7473522a2bcad7a9a1d.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
