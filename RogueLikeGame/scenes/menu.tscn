@@ -12,14 +12,16 @@
 [node name="root" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 57.0
-margin_top = 10.0
-margin_right = 57.0
-margin_bottom = 10.0
+margin_left = 66.0
+margin_top = -30.0
+margin_right = 29.0
+margin_bottom = -61.0
 
 [node name="menu" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 33.0
+margin_top = -11.0
+margin_right = 940.0
+margin_bottom = 572.0
 
 [node name="testbutton" type="TextureButton" parent="menu"]
 margin_left = 58.0
@@ -47,19 +49,19 @@ margin_bottom = 14.08
 text = "you mama"
 script = ExtResource( 4 )
 
-[node name="Finger Speech" parent="menu" instance=ExtResource( 6 )]
-
 [node name="Sprite" type="Sprite" parent="menu"]
-position = Vector2( 102, 84.5 )
-scale = Vector2( 1.06312, 1.13174 )
+position = Vector2( 448, 352 )
+scale = Vector2( 3.37874, 3.61078 )
 z_index = -9
 texture = ExtResource( 8 )
 
 [node name="Sprite2" type="Sprite" parent="menu"]
-position = Vector2( 165, 97 )
-scale = Vector2( 0.199898, 0.189863 )
+position = Vector2( 735, 477 )
+scale = Vector2( 0.390338, 0.414519 )
 z_index = -1
 texture = ExtResource( 7 )
+
+[node name="Finger Speech" parent="menu" instance=ExtResource( 6 )]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

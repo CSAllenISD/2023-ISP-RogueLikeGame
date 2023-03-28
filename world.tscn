@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RogueLikeGame/Tilesets/stone_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://RogueLikeGame/Tilesets/brickwall.tres" type="TileSet" id=2]
+[ext_resource path="res://basic_walker.gd" type="Script" id=3]
+[ext_resource path="res://RogueLikeGame/assets/grasstile.png" type="Texture" id=4]
+[ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=5]
+
+[node name="MapGenOpt1" type="Node2D"]
+
+[node name="MapGenerator" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="WallTileMap" type="TileMap" parent="MapGenerator"]
+z_index = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_tile_origin = 1
+format = 1
+
+[node name="DirtTileMap" type="TileMap" parent="MapGenerator"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_tile_origin = 1
+format = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 516, 245 )
+z_index = -2
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1002.68, 778.227 )
+
+[node name="character" parent="." instance=ExtResource( 5 )]
+position = Vector2( 512, 300 )
+
+[node name="Camera2D" type="Camera2D" parent="character"]
+position = Vector2( 6, -3 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = -9999998

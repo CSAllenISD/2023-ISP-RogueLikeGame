@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RogueLikeGame/Main.gd" type="Script" id=1]
+[ext_resource path="res://RogueLikeGame/Tilesets/tiles.tres" type="TileSet" id=2]
+
+[node name="Main" type="Node2D"]
+position = Vector2( 512, 300 )
+script = ExtResource( 1 )
+
+[node name="Rooms" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 10, 10 )

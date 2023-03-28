@@ -1,10 +1,11 @@
-extends Node2D
+extends RigidBody2D
 
-var connected_rooms = {
-	Vector2(1, 0): null,
-	Vector2(-1, 0): null,
-	Vector2(0, 1): null,
-	Vector2(0, -1): null
-}
+var size
 
-var number_of_connections = 0
+func make_room(_pos, _size):
+	position = _pos
+	size = _size
+	var s = RectangleShape2D.new()
+	s.custom_solver_bias = 0.75
+	s.extents = size
+	$CollisionShape2D.shape = s

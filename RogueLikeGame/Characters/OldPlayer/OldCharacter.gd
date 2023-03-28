@@ -1,7 +1,7 @@
 extends KinematicBody2D
 export var ACCELERATION = 600
 export var MAX_SPEED = 150
-export var FRICTION = 150000000000000000
+export var FRICTION = 1500
 export var max_health = 100
 
 onready var timer = $InvulnerabilityTimer
@@ -20,8 +20,8 @@ enum{
 
 onready var health = max_health
 
-var dash_vector = Vector2.ZERO
-var dash_speed = 20
+var dash_vector = Vector2.ZERO 
+var dash_speed = 35
 var invincibility_time = .01
 
 var state = MOVE
@@ -87,8 +87,9 @@ func move_state(delta):
 	if Input.is_action_just_pressed("dash"):
 		state = DASH
 		
-var dash_timer = .02
+var dash_timer = 1
 func dash_state(delta):
+	#var dash_timer = 10
 	dash_cooldown = 2
 	$Hurtbox/CollisionShape2D2.disabled = true
 	animationTree.set("parameters/Dash/blend_position", mouse_direction)
