@@ -3,13 +3,14 @@ export var ACCELERATION = 600
 export var MAX_SPEED = 150
 export var FRICTION = 1500
 export var max_health = 100
+export var rock_speed = 1000
+
+
+
 
 onready var timer = $InvulnerabilityTimer
 signal health_updated(health)
 signal killed()
-
-
-
 
 onready var main = get_parent()
 enum{
@@ -17,7 +18,6 @@ enum{
 	DASH,
 	ATTACK,
 }
-
 onready var health = max_health
 
 var dash_vector = Vector2.ZERO 
@@ -40,14 +40,11 @@ func _process(delta):
 	match state:
 		MOVE: 
 			move_state(delta)
-		DASH: #space to dash
-			if dash_cooldown <= 0:
-				dash_vector = velocity
-				dash_state(delta)
-			else:
-				state = MOVE
+
 		ATTACK:
 			attack_state(delta)
+			
+			
 	mouse_direction = Vector2(get_global_mouse_position() - global_position).normalized()
 	animationTree.set("parameters/Idle/blend_position", mouse_direction)
 	animationTree.set("parameters/Run/blend_position", mouse_direction)
@@ -56,8 +53,19 @@ func _process(delta):
 		melee_cooldown -= delta
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
-
-	
+		
+		#OTHER ACTIONS
+	if Input.is_action_just_pressed("dash"):
+		if dash_cooldown <= 0:
+			dash()
+			dash_cooldown += 1
+	if Input.is_action_just_pressed("Shoot"):
+		var rock_instance = rock.instance()
+		rock_instance.position = get_global_position() 
+		rock_instance.rotation_degrees = rotation_degrees
+		if rock_instance != null:
+			rock_instance.apply_impulse(Vector2(),Vector2(mouse_direction) * rock_speed)
+			get_tree().get_root().add_child(rock_instance)
 func move_state(delta):
 	$Hurtbox/CollisionShape2D2.disabled = false
 	$Sprite.visible = true
@@ -84,40 +92,21 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		melee()
-	if Input.is_action_just_pressed("dash"):
-		state = DASH
+
 		
 var dash_timer = 1
-func dash_state(delta):
-	#var dash_timer = 10
-	dash_cooldown = 2
-	$Hurtbox/CollisionShape2D2.disabled = true
-	animationTree.set("parameters/Dash/blend_position", mouse_direction)
-	#$DashSprite.visible = true
-	#$Sprite.visible = false
-	dash_timer -= delta
-	if dash_timer <= 0:
-		dash_state_finished()
-	timer.connect("timeout",self,"dash_state_finished")
-	#timer.wait_time = 3
-	#timer.one_shot = true
-	#add_child(timer)
-	#timer.start()
-	move_and_slide(dash_vector * dash_speed) 
+func dash():
+	velocity * 400
+	ACCELERATION = 2000
+	MAX_SPEED = 9999999
+	$DashTimer.start()
 	
-
-	
-func dash_state_finished():
-	#$DashSprite.visible = false
-	#$Sprite.visible = true
-	$Hurtbox/CollisionShape2D2.disabled = false
-	dash_timer = .02
-	state = MOVE
+func _on_DashTimer_timeout():
+	velocity / 400
+	MAX_SPEED = 150
+	ACCELERATION = 600
 var MELEE = load("res://RogueLikeGame/attacks/sword.tscn")
 var attack
-
-
-
 
 func move():
 	velocity = move_and_slide(velocity)
@@ -168,10 +157,13 @@ func attack_state_finished():
 	state = MOVE
 	$Sprite.visible = true
 	
+#PROJECTILES
+var rock = preload("res://RogueLikeGame/Projectiles/rock.tscn")
 
 
 
 
 
-func _on_InvulnerabilityTimer_timeout():
-	dash_state_finished()
+
+
+

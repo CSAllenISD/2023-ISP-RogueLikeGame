@@ -82,7 +82,7 @@ frame = 1
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = 23.596
+volume_db = 5.0
 
 [node name="Light" parent="." instance=ExtResource( 11 )]
 position = Vector2( 0, -10 )

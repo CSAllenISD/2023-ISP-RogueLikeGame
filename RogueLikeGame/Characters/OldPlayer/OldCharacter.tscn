@@ -497,7 +497,6 @@ shape = SubResource( 50 )
 
 [node name="Camera2D2" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.5, 0.5 )
 limit_smoothed = true
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -549,5 +548,10 @@ one_shot = true
 visible = false
 color = Color( 1, 0, 0, 1 )
 
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]

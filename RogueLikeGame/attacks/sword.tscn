@@ -40,6 +40,7 @@ scale = Vector2( 2, 2 )
 [node name="Sprite" type="AnimatedSprite" parent="slash"]
 position = Vector2( -1.00002, -5 )
 frames = SubResource( 1 )
+frame = 4
 playing = true
 
 [node name="hitbox" type="Area2D" parent="slash"]
