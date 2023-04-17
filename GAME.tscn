@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://RogueLikeGame/Rooms/Room1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RogueLikeGame/Rooms/Room2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RogueLikeGame/Rooms/Room4.tscn" type="PackedScene" id=3]
+[ext_resource path="res://RogueLikeGame/Rooms/Room3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RogueLikeGame/Rooms/StartingRoom.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RogueLikeGame/Rooms/SameSceneDoor.tscn" type="PackedScene" id=6]
+
+[node name="GAME" type="Node2D"]
+
+[node name="StartingRoom" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, 6 )
+
+[node name="Door" parent="StartingRoom" instance=ExtResource( 6 )]
+position = Vector2( 152, -71 )
+
+[node name="Exit" parent="StartingRoom/Door" index="2"]
+position = Vector2( 373, 133 )
+
+[node name="Room1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 497, -18 )
+
+[node name="Door" parent="Room1" instance=ExtResource( 6 )]
+position = Vector2( 312, 87 )
+
+[node name="Exit" parent="Room1/Door" index="2"]
+position = Vector2( 377, -16 )
+
+[node name="Room2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1144, -32 )
+
+[node name="Room3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2442, -65 )
+
+[node name="Room5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3607, -56 )
+
+[node name="Door" parent="Room5" instance=ExtResource( 6 )]
+position = Vector2( -474, 80 )
+
+[node name="Exit" parent="Room5/Door" index="2"]
+position = Vector2( 518, 12 )
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1884, 53 )
+
+[node name="Exit" parent="Door" index="2"]
+position = Vector2( 299, -39 )
+
+[editable path="StartingRoom/Door"]
+[editable path="Room1/Door"]
+[editable path="Room5/Door"]
+[editable path="Door"]

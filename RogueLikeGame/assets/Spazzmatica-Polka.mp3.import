@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Spazzmatica-Polka.mp3-d619a21e46796fa6ea19cf0a95d8cc23.mp3str"
+
+[deps]
+
+source_file="res://RogueLikeGame/assets/Spazzmatica-Polka.mp3"
+dest_files=[ "res://.import/Spazzmatica-Polka.mp3-d619a21e46796fa6ea19cf0a95d8cc23.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

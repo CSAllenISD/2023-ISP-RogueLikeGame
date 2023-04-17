@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
-"path": "res://RogueLikeGame/Characters/Character.gd"
+"path": "res://Character.gd"
 }, {
 "base": "HBoxContainer",
 "class": "ContributorClass",
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "FiniteStateMachine",
 "language": "GDScript",
-"path": "res://RogueLikeGame/Characters/FSM.gd"
+"path": "res://FiniteStateMachine.gd"
 }, {
 "base": "PanelContainer",
 "class": "GistItem",

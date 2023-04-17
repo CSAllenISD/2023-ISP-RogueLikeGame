@@ -1,20 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://RogueLikeGame/Characters/Enemies/turret.tscn" type="PackedScene" id=4]
-[ext_resource path="res://RogueLikeGame/Rooms/Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://RogueLikeGame/Tilesets/brickwall.tres" type="TileSet" id=6]
 
 [node name="Room2" type="Node2D"]
 
 [node name="YSort" type="YSort" parent="."]
-
-[node name="character" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 11, 91 )
-
-[node name="Door" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 745, 86 )
-Destination = "res://RogueLikeGame/Rooms/Room3.tscn"
 
 [node name="Node2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( 229, 32 )

@@ -19,7 +19,13 @@ func _on_Hurtbox_area_entered(area):
 	$HitSound.play()
 	health -= 10
 	
-
+func handle_hit():
+	create_dummy_effect()
+	$Sprite.visible = false
+	$AnimatedSprite.play("hitanimate")
+	$AnimatedSprite.visible = true
+	$HitSound.play()
+	health -= 10
 
 func _on_AnimatedSprite_animation_finished():
 	$Sprite.visible = true

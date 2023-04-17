@@ -4,7 +4,7 @@ export var MAX_SPEED = 150
 export var FRICTION = 1500
 export var max_health = 100
 export var rock_speed = 1000
-
+export var projectile_cooldown = 0
 
 
 
@@ -54,18 +54,30 @@ func _process(delta):
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
 		
-		#OTHER ACTIONS
+		
+		
+		
+		#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<OTHER ACTIONS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 	if Input.is_action_just_pressed("dash"):
 		if dash_cooldown <= 0:
 			dash()
 			dash_cooldown += 1
 	if Input.is_action_just_pressed("Shoot"):
-		var rock_instance = rock.instance()
-		rock_instance.position = get_global_position() 
-		rock_instance.rotation_degrees = rotation_degrees
-		if rock_instance != null:
-			rock_instance.apply_impulse(Vector2(),Vector2(mouse_direction) * rock_speed)
-			get_tree().get_root().add_child(rock_instance)
+		if projectile_cooldown <= 0:
+			var rock_instance = rock.instance()
+			rock_instance.position = get_global_position() 
+			rock_instance.rotation_degrees = rotation_degrees
+			if rock_instance != null:
+				rock_instance.apply_impulse(Vector2(),Vector2(mouse_direction) * rock_speed)
+				get_tree().get_root().add_child(rock_instance)
+				projectile_cooldown += 50
+	
+	projectile_cooldown -= 1
+			
+			
+			
+			
+			
 func move_state(delta):
 	$Hurtbox/CollisionShape2D2.disabled = false
 	$Sprite.visible = true

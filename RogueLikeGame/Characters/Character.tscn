@@ -1,128 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://RogueLikeGame/assets/walterspritewalk1.png" type="Texture" id=3]
-[ext_resource path="res://RogueLikeGame/assets/gnomerundown1.png" type="Texture" id=6]
+[ext_resource path="res://Character.gd" type="Script" id=1]
+[ext_resource path="res://FiniteStateMachine.gd" type="Script" id=2]
 
-[sub_resource type="GDScript" id=6]
-script/source = "extends KinematicBody2D
-class_name Character 
-
-const FRICTION: float = 0.15
-
-export(int) var acceleration: int= 40
-export(int) var max_speed: int = 100
-
-onready var animated_sprite: AnimatedSprite = get_node(\"AnimatedSprite\")
-
-var mov_direction: Vector2 = Vector2.ZERO
-var velocity: Vector2 = Vector2.ZERO
-
-func _physics_process(delta: float) -> void:
-	velocity = move_and_slide(velocity)
-	velocity = lerp(velocity, Vector2.ZERO, FRICTION)
-	
-func move() -> void:
-	mov_direction = mov_direction.normalized()
-	velocity += mov_direction * acceleration
-	velocity = velocity.clamped(max_speed)
-	
-"
-
-[sub_resource type="GDScript" id=7]
-script/source = "extends Node
-class_name FiniteStateMachine
-
-var states: Dictionary = {}
-var previous_state: int = -1
-var state: int = -1 setget set_state
-
-onready var parent: Character = get_parent()
-onready var animation_player: AnimationPlayer = parent.get_node(\"AnimationPlayer\")
-
-
-func _physics_process(delta: float) -> void:
-	if state != -1:
-		_state_logic(delta)
-		var transition: int = _get_transition()
-		if transition != -1:
-			set_state(transition)
-
-
-func _state_logic(_delta: float) -> void:
-	pass
-	
-	
-func _get_transition() -> int:
-	return -1
-
-
-func _add_state(new_state: String) -> void:
-	states[new_state] = states.size()
-	
-	
-func set_state(new_state: int) -> void:
-	_exit_state(state)
-	previous_state = state
-	state = new_state
-	_enter_state(previous_state, state)
-
-
-func _enter_state(_previous_state: int, _new_state: int) -> void:
-	pass
-	
-	
-func _exit_state(_state_exited: int) -> void:
-	pass
-"
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
-region = Rect2( 41, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 21, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 3 )
-region = Rect2( 21, 0, 21, 32 )
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "GnomeIdle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 5 ) ],
-"loop": true,
-"name": "idle ",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 7.0
-height = 0.0
-
-[node name="Character" type="KinematicBody2D"]
-position = Vector2( 1, 0 )
-script = SubResource( 6 )
+[node name="Character" type="Node2D"]
+script = ExtResource( 1 )
 
 [node name="FiniteStateMachine" type="Node" parent="."]
-script = SubResource( 7 )
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -6 )
-frames = SubResource( 1 )
-animation = "idle "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 4 )
-shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
