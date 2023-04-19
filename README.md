@@ -13,4 +13,4 @@ Development Engineer: [Vereie](https://www.codermerlin.com/users/robert-brugger/
 A brief description of our ISP:
 For our ISP we will be creating a rogue-like game. To create the rogue-like game we will be experimenting with the engine Godot. The languages we will use are Python and Godot engine GAP language. 
 :)
-![Screenshot](/Users/305446/2023-ISP-RogueLikeGame/Screen Shot 2023-04-19 at 11.48.39 AM.png)
+<img width="2463" alt="Screen Shot 2023-04-19 at 11 48 39 AM" src="https://user-images.githubusercontent.com/89532483/233150509-68469077-cdff-4f62-9f1c-7ef7dca71aed.png">
