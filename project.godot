@@ -69,7 +69,7 @@ _global_script_class_icons={
 [application]
 
 config/name="roguelikegame"
-run/main_scene="res://RogueLikeGame/Rooms/StartingRoom.tscn"
+run/main_scene="res://GAME.tscn"
 config/icon="res://RogueLikeGame/assets/walter.jpeg"
 
 [autoload]

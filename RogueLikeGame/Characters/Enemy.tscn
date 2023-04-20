@@ -47,8 +47,6 @@ func _get_path_to_player() -> void:
 "
 
 [node name="Enemy" instance=ExtResource( 1 )]
-collision_layer = 4
-collision_mask = 8
 script = SubResource( 1 )
 
 [node name="PathTimer" type="Timer" parent="." index="4"]
