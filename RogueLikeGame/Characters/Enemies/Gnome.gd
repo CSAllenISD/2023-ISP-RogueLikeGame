@@ -13,6 +13,7 @@ var hitstun = 0
 var knockback = Vector2.ZERO
 var knockbackSpeed = 100
 var velocity = Vector2.ZERO
+
 enum {
 	IDLE,
 	
@@ -41,7 +42,7 @@ func _physics_process(delta):
 			if player != null:
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-				
+
 	velocity = move_and_slide(velocity)
 			
 func seek_player():
@@ -56,8 +57,17 @@ func _on_Hurtbox_area_entered(area):
 
 
 
-
+######HITBOX AND HIT COOLDOWN##############
 func _on_Hitbox_body_entered(body):
 	
 	body.health -= DAMAGE
+	$HitCooldown.start()
+	$Hitbox.monitoring = false
+	knockback = global_position - body.global_position
+	knockback = (knockback.normalized() * knockbackSpeed * 1.5)
 	
+	
+func _on_HitCooldown_timeout():
+	$Hitbox.monitoring = true
+	
+###########################################

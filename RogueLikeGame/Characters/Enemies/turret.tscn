@@ -29,6 +29,7 @@ margin_top = 2.73909
 margin_bottom = 8.73909
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -40,6 +41,7 @@ stream = ExtResource( 5 )
 max_distance = 200.0
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource( 2 )

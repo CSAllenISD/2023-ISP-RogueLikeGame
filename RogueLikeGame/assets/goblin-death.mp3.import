@@ -11,5 +11,5 @@ dest_files=[ "res://.import/goblin-death.mp3-78c997090e51599c4aca9bd93686dbff.mp
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -14,6 +14,5 @@ func _on_Hitbox_body_entered(body) -> void:
 	if body.has_method("_on_Hurtbox_area_entered"):
 		body.health -= 50
 		
-		if body.knockback != null:
-			body.knockback * -1
+		
 		queue_free()

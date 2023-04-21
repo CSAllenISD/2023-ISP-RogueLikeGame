@@ -3,7 +3,7 @@ export var ACCELERATION = 600
 export var MAX_SPEED = 150
 export var FRICTION = 1500
 export var max_health = 100
-export var rock_speed = 1000
+export var rock_speed = 500
 export var projectile_cooldown = 0
 
 

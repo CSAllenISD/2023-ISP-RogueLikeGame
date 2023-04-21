@@ -57,7 +57,7 @@ script = ExtResource( 3 )
 position = Vector2( 0, -7 )
 frames = SubResource( 5 )
 animation = "gnome"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -92,9 +92,14 @@ collision_mask = 6
 position = Vector2( 0, 3 )
 shape = SubResource( 9 )
 
+[node name="HitCooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="timeout" from="HitCooldown" to="." method="_on_HitCooldown_timeout"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]
