@@ -49,15 +49,16 @@ height = 6.0
 
 [node name="Gnome" type="KinematicBody2D"]
 position = Vector2( 24, -6 )
-collision_layer = 16
-collision_mask = 17
+collision_layer = 2
+collision_mask = 9
 script = ExtResource( 3 )
+SPEED = 30
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -7 )
 frames = SubResource( 5 )
 animation = "gnome"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -95,6 +96,14 @@ shape = SubResource( 9 )
 [node name="HitCooldown" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="LineOfSight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 70, 0 )
+collision_mask = 10
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 2.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
