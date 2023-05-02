@@ -85,6 +85,7 @@ MAX_HEALTH = 200
 [node name="Sprite" parent="YSort/LargeGnome" index="0"]
 position = Vector2( 0, -11 )
 scale = Vector2( 1.75, 1.53125 )
+frame = 1
 
 [node name="death" parent="YSort/LargeGnome" index="4"]
 pitch_scale = 0.5

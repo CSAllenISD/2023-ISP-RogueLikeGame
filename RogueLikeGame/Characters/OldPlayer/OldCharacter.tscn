@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://RogueLikeGame/Characters/OldPlayer/OldCharacter.gd" type="Script" id=1]
 [ext_resource path="res://RogueLikeGame/assets/simplifiedcharacter.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://RogueLikeGame/assets/pngaaa.com-3925405.png" type="Texture" id=7]
 [ext_resource path="res://RogueLikeGame/assets/pngaaa.com-5077641.png" type="Texture" id=8]
 [ext_resource path="res://RogueLikeGame/assets/Roblox Sword Slash Sound Effect.mp3" type="AudioStream" id=9]
+[ext_resource path="res://RogueLikeGame/assets/hurtanimation.png" type="Texture" id=10]
+[ext_resource path="res://RogueLikeGame/assets/minecraft_hit_soundmp3converter.mp3" type="AudioStream" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -76,6 +78,21 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 6, 7 ]
+}
+
+[sub_resource type="Animation" id=65]
+resource_name = "Hurt"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hurt:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -225,6 +242,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 6 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Hurt:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -434,7 +463,6 @@ polygon = PoolVector2Array( 0, 3, 1, 3, 4, -9, 3, -12, 1, -12, 0, -12, -1, -12, 
 position = Vector2( 0, -12 )
 z_index = 1
 collision_layer = 2
-collision_mask = 9
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -447,6 +475,7 @@ anims/DashDown = SubResource( 52 )
 anims/DashLeft = SubResource( 53 )
 anims/DashRight = SubResource( 54 )
 anims/DashUp = SubResource( 55 )
+anims/Hurt = SubResource( 65 )
 anims/Idle = SubResource( 4 )
 anims/LeftIdle = SubResource( 24 )
 anims/PipeDown = SubResource( 38 )
@@ -467,6 +496,12 @@ scale = Vector2( 0.956985, 0.984375 )
 texture = ExtResource( 2 )
 hframes = 12
 region_filter_clip = true
+
+[node name="Hurt" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -4 )
+scale = Vector2( 0.933333, 0.866667 )
+texture = ExtResource( 10 )
 
 [node name="DashSprite" type="Sprite" parent="."]
 visible = false
@@ -489,7 +524,7 @@ parameters/Run/blend_position = Vector2( 0, 0 )
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
 position = Vector2( 16, -9 )
 collision_layer = 4
-collision_mask = 4
+show_hit = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( -16, 5 )
@@ -536,12 +571,16 @@ position = Vector2( 0, -7 )
 stream = ExtResource( 4 )
 volume_db = -10.0
 
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+
 [node name="Slash2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 volume_db = -1.0
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
-wait_time = 0.011
+process_mode = 0
+wait_time = 0.2
 one_shot = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

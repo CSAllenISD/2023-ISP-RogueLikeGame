@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name Character
+
 
 const HIT_EFFECT_SCENE: PackedScene = preload("res://RogueLikeGame/Effects/HitEffect.tscn")
 

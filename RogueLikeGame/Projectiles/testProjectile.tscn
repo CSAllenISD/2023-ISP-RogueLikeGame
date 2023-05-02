@@ -22,9 +22,9 @@ position = Vector2( -0.15, -0.2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 0.343756 )
-rotation = -1.5708
-scale = Vector2( 0.203, 0.204 )
+position = Vector2( -0.210463, 0.13328 )
+rotation = -0.0401426
+scale = Vector2( 0.197153, 0.198154 )
 texture = ExtResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]

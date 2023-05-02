@@ -17,6 +17,7 @@ enum{
 	MOVE,
 	DASH,
 	ATTACK,
+	HURT,
 }
 onready var health = max_health
 
@@ -44,7 +45,8 @@ func _process(delta):
 		ATTACK:
 			attack_state(delta)
 			
-			
+		HURT:
+			hurt_state(delta)
 	mouse_direction = Vector2(get_global_mouse_position() - global_position).normalized()
 	animationTree.set("parameters/Idle/blend_position", mouse_direction)
 	animationTree.set("parameters/Run/blend_position", mouse_direction)
@@ -53,7 +55,7 @@ func _process(delta):
 		melee_cooldown -= delta
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
-		
+	
 		
 		
 		
@@ -65,7 +67,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("Shoot"):
 		if projectile_cooldown <= 0:
 			var rock_instance = rock.instance()
-			rock_instance.position = get_global_position() 
+			rock_instance.position = get_global_position()
 			rock_instance.rotation_degrees = rotation_degrees
 			if rock_instance != null:
 				rock_instance.apply_impulse(Vector2(),Vector2(mouse_direction) * rock_speed)
@@ -151,6 +153,25 @@ func attack_state(delta):
 	animationState.travel("PipeAttack")
 	#melee attack
 
+
+
+func hurt_state(delta):
+	$Hurtbox/CollisionShape2D2.disabled = true
+	
+	$Sprite.hide()
+	$Hurt.show()
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	input_vector = input_vector.normalized()
+	#makes movement speed at angles = to straight directions
+	if input_vector != Vector2.ZERO:
+		#print(input_vector)
+		dash_vector = input_vector
+
+		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+	#$DashSprite.hide()
+	velocity = move_and_slide(velocity)
 func melee():
 	
 	
@@ -175,7 +196,13 @@ var rock = preload("res://RogueLikeGame/Projectiles/rock.tscn")
 
 
 
+func _on_Hurtbox_area_entered(area):
+	state = HURT
+	health -= area.get_parent().DAMAGE
+	$HurtSound.play()
+	$InvulnerabilityTimer.start()
 
-
-
-
+func _on_InvulnerabilityTimer_timeout():
+	$Hurtbox/CollisionShape2D2.disabled = false
+	state = MOVE
+	$Hurt.hide()

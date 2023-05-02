@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/minecraft_hit_soundmp3converter.mp3-a18189d59aa95b6d295b0896479eec1d.mp3str"
+
+[deps]
+
+source_file="res://RogueLikeGame/assets/minecraft_hit_soundmp3converter.mp3"
+dest_files=[ "res://.import/minecraft_hit_soundmp3converter.mp3-a18189d59aa95b6d295b0896479eec1d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -6,6 +6,7 @@ export var FRICTION = 200
 export var DAMAGE = 20
 export var MAX_HEALTH = 100
 onready var stats = $Stats
+signal hit_player
 #onready var health = stats.health
 onready var health = MAX_HEALTH
 onready var playerdetectionzone = $PlayerDetectionZone
@@ -54,20 +55,24 @@ func _on_Hurtbox_area_entered(area):
 	knockback = (knockback.normalized() * knockbackSpeed) 
 	#$Hurtbox.set_deferred("monitoring", false)
 	$death.play()
+	health -= area.get_parent().get_parent().DAMAGE
 
 
 
 ######HITBOX AND HIT COOLDOWN##############
-func _on_Hitbox_body_entered(body):
+func _on_Hitbox_area_entered(area):
 	
-	body.health -= DAMAGE
+	#area.get_parent().
 	$HitCooldown.start()
 	$Hitbox.monitoring = false
-	knockback = global_position - body.global_position
+	knockback = global_position - area.global_position
 	knockback = (knockback.normalized() * knockbackSpeed * 1.5)
+	
 	
 	
 func _on_HitCooldown_timeout():
 	$Hitbox.monitoring = true
 	
 ###########################################
+
+

@@ -57,7 +57,7 @@ script = ExtResource( 3 )
 position = Vector2( 0, -7 )
 frames = SubResource( 5 )
 animation = "gnome"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -86,7 +86,7 @@ visible = false
 shape = SubResource( 8 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 7 )]
-collision_mask = 6
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, 3 )
@@ -96,6 +96,7 @@ shape = SubResource( 9 )
 wait_time = 2.0
 one_shot = true
 
+[connection signal="hit_player" from="." to="." method="_on_Gnome_hit_player"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

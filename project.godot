@@ -9,18 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Character",
-"language": "GDScript",
-"path": "res://Character.gd"
-}, {
 "base": "HBoxContainer",
 "class": "ContributorClass",
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/ContributorClass.gd"
 }, {
 "base": "Node",
-"class": "FiniteStateMachine",
+"class": "FiniteStateM",
 "language": "GDScript",
 "path": "res://FiniteStateMachine.gd"
 }, {
@@ -55,9 +50,8 @@ _global_script_classes=[ {
 "path": "res://StateMachine.gd"
 } ]
 _global_script_class_icons={
-"Character": "",
 "ContributorClass": "",
-"FiniteStateMachine": "",
+"FiniteStateM": "",
 "GistItem": "",
 "InvitationItem": "",
 "PlayerState": "",
