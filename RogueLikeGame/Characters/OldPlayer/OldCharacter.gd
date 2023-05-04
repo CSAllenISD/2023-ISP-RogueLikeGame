@@ -6,6 +6,7 @@ export var max_health = 100
 export var rock_speed = 500
 export var projectile_cooldown = 0
 
+var keys = 0
 
 
 onready var timer = $InvulnerabilityTimer
@@ -76,9 +77,18 @@ func _process(delta):
 	
 	projectile_cooldown -= 1
 			
-			
-			
-			
+	if keys == 0:
+		$UI/keysprite.visible = false
+		$UI/keysprite2.visible = false
+		$UI/keysprite3.visible = false
+	elif keys == 1:
+		$UI/keysprite.visible = true
+	elif keys == 2:
+		$UI/keysprite2.visible = true
+	elif keys == 3:
+		$UI/keysprite3.visible = true
+	
+		
 			
 func move_state(delta):
 	$Hurtbox/CollisionShape2D2.disabled = false

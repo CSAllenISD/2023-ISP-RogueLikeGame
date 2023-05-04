@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/keynoise.mp3-aa3643c5dd7e47eb5c624cc70cb57af5.mp3str"
+
+[deps]
+
+source_file="res://RogueLikeGame/assets/keynoise.mp3"
+dest_files=[ "res://.import/keynoise.mp3-aa3643c5dd7e47eb5c624cc70cb57af5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

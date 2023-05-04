@@ -7,7 +7,7 @@
 [ext_resource path="res://RogueLikeGame/HitboxesAndHurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://RogueLikeGame/UI/Health Bar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://RogueLikeGame/assets/pngaaa.com-3925405.png" type="Texture" id=7]
-[ext_resource path="res://RogueLikeGame/assets/pngaaa.com-5077641.png" type="Texture" id=8]
+[ext_resource path="res://RogueLikeGame/assets/key.png" type="Texture" id=8]
 [ext_resource path="res://RogueLikeGame/assets/Roblox Sword Slash Sound Effect.mp3" type="AudioStream" id=9]
 [ext_resource path="res://RogueLikeGame/assets/hurtanimation.png" type="Texture" id=10]
 [ext_resource path="res://RogueLikeGame/assets/minecraft_hit_soundmp3converter.mp3" type="AudioStream" id=11]
@@ -551,15 +551,23 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( -1.108, -32.838, 733.122, 200 )
 
-[node name="Sprite4" type="Sprite" parent="UI"]
+[node name="keysprite" type="Sprite" parent="UI"]
 visible = false
-position = Vector2( 43, 156 )
-rotation = 3.14159
-scale = Vector2( -0.164979, -0.113979 )
+position = Vector2( 121, 9 )
+scale = Vector2( 0.333333, 0.236111 )
 texture = ExtResource( 8 )
-region_enabled = true
-region_rect = Rect2( 10, -24, 722, 545.613 )
-region_filter_clip = true
+
+[node name="keysprite2" type="Sprite" parent="UI"]
+visible = false
+position = Vector2( 136, 9 )
+scale = Vector2( 0.333333, 0.236111 )
+texture = ExtResource( 8 )
+
+[node name="keysprite3" type="Sprite" parent="UI"]
+visible = false
+position = Vector2( 150, 9 )
+scale = Vector2( 0.333333, 0.236111 )
+texture = ExtResource( 8 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 51 )
