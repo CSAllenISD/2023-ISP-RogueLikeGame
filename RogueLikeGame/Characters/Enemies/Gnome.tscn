@@ -44,7 +44,7 @@ height = 12.0
 radius = 132.306
 
 [sub_resource type="CapsuleShape2D" id=9]
-radius = 7.0
+radius = 5.0
 height = 6.0
 
 [node name="Gnome" type="KinematicBody2D"]
@@ -57,7 +57,7 @@ script = ExtResource( 3 )
 position = Vector2( 0, -7 )
 frames = SubResource( 5 )
 animation = "gnome"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -77,7 +77,6 @@ max_health = 50
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-volume_db = 0.874
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
 
