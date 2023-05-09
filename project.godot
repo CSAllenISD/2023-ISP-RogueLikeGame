@@ -74,7 +74,7 @@ UserData="*res://addons/github-integration/scripts/user_data.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 Paused="*res://RogueLikeGame/autoloads/Paused.tscn"
 dungeon_generation="*res://dungeon_generation.gd"
-Global="*res://Global.gd"
+SaveFile="*res://save_file.gd"
 
 [display]
 

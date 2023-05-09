@@ -1,4 +1,7 @@
 extends KinematicBody2D
+
+var save_file = SaveFile.game_data
+
 export var ACCELERATION = 600
 export var MAX_SPEED = 150
 export var FRICTION = 1500
@@ -37,8 +40,13 @@ onready var invul_timer = $InvulnerabilityTimer
 
 var melee_cooldown = 0
 var dash_cooldown = 0
+
+func _ready():
+	pass
+
+
 func _process(delta):
-	
+	health = SaveFile.health
 	match state:
 		MOVE: 
 			move_state(delta)
@@ -208,7 +216,9 @@ var rock = preload("res://RogueLikeGame/Projectiles/rock.tscn")
 
 func _on_Hurtbox_area_entered(area):
 	state = HURT
-	health -= area.get_parent().DAMAGE
+	SaveFile.health -= area.get_parent().DAMAGE
+	print(SaveFile.health)
+	
 	$HurtSound.play()
 	$InvulnerabilityTimer.start()
 

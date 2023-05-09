@@ -117,7 +117,6 @@ MAX_HEALTH = 500
 [node name="Sprite" parent="YSort/Gnome8" index="0"]
 position = Vector2( 0, -9 )
 scale = Vector2( 2.3125, 1.75 )
-frame = 3
 
 [node name="DiffSceneDoor" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 286, 170 )
