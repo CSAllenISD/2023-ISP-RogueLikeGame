@@ -64,7 +64,8 @@ func _process(delta):
 		melee_cooldown -= delta
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
-	
+	if projectile_cooldown > 0:
+		projectile_cooldown -= 1
 		
 		
 		
@@ -83,7 +84,7 @@ func _process(delta):
 				get_tree().get_root().add_child(rock_instance)
 				projectile_cooldown += 50
 	
-	projectile_cooldown -= 1
+	
 			
 	if keys == 0:
 		$UI/keysprite.visible = false
@@ -194,9 +195,9 @@ func melee():
 	
 	
 	if melee_cooldown <= 0:
-		attack_timer = .3
+		attack_timer = SaveFile.Attack_Speed
 		state = ATTACK
-		melee_cooldown += .3
+		melee_cooldown += SaveFile.Attack_Speed
 		attack = MELEE.instance()
 		attack.rotate(get_angle_to(get_global_mouse_position()))
 		attack.position = $attackPoint.position

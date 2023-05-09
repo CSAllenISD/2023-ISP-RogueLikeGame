@@ -3,6 +3,7 @@ extends Node
 const SAVE_FILE = "res://save_file.save"
 var game_data = {}
 var health = 100
+var Attack_Speed = .3
 func _ready():
 	load_data()
 
